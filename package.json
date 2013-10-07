@@ -2,19 +2,26 @@
   "name": "DailyFinance",
   "version": "0.0.1",
   "description": "TBD",
+  "author": {
+    "name": "Leo Hsieh",
+    "url": "http://leoj.net"
+  },
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {},
-  "repository": "git@github.com:LeoAJ/DailyFinance.git",
-  "author": "Leo Hsieh",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:LeoAJ/DailyFinance.git"
+  },
   "license": "BSD",
   "dependencies": {
     "express": "~3.4.0",
     "passport": "~0.1.17"
   },
   "devDependencies": {
+    "matchdep": "~0.1.2",
     "mocha": "~1.13.0",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.4",

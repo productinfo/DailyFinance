@@ -10,23 +10,20 @@ exports = module.exports = function (grunt) {
       options: {
         jshintrc: '.jshintrc'
       },
-      all: {
-        files: {
-          src: [
-            'Gruntfile.js'
-          ]
-        }
-      }
+      all: [
+        'Gruntfile.js',
+        'client/app/js'
+      ]
     },
     jsbeautifier: {
       options: {
         config: '.jsbeautifyrc'
       },
       build: {
-        src: ['Gruntfile.js']
+        src: ['Gruntfile.js', 'client/app/**/*.{js,json,css,html}', '!client/app/bower_components/**/*.*']
       },
       ci: {
-        src: ['Gruntfile.js'],
+        src: ['Gruntfile.js', 'client/app/**/*.{js,json,css,html}', '!client/app/bower_components/**/*.*'],
         options: {
           mode: 'VERIFY_ONLY'
         }

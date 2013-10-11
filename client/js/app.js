@@ -10,5 +10,8 @@ angular.module('DailyFinanceApp', [
         title: 'Login',
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
       });
   });

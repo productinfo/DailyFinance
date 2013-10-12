@@ -16,6 +16,17 @@ exports = module.exports = function (grunt) {
         tasks: ['compass:server']
       }
     },
+    clean: {
+      dist: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp'
+          ]
+        }]
+      },
+      server: '.tmp'
+    },
     express: {
       options: {
         port: config.port,
@@ -23,8 +34,8 @@ exports = module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          server: path.resolve('./server'),
-          bases: path.resolve('./client'),
+          server: path.resolve(config.server),
+          bases: [path.resolve('./.tmp'), path.resolve(config.client)],
           livereload: true,
           serverreload: true
         }
@@ -59,7 +70,7 @@ exports = module.exports = function (grunt) {
         jshintrc: '.jshintrc'
       },
       all: [
-        // 'server/*.*',
+        'server/*.*',
         'Gruntfile.js',
         'index.js'
       ]
@@ -87,6 +98,7 @@ exports = module.exports = function (grunt) {
   });
 
   grunt.registerTask('server', [
+    'clean:server',
     'concurrent:server',
     'express:livereload',
     'open',

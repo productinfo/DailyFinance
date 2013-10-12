@@ -1,5 +1,6 @@
-var path = require('path'),
-  express = require('express'),
+'use strict';
+
+var express = require('express'),
   passport = require('passport'),
   app = express(),
   Authentication = require('./authentication');
@@ -30,9 +31,5 @@ app.post('/login', Authentication.login);
 
 // logout
 app.get('logout', Authentication.logout);
-
-app.get('/', function (req, res) {
-  res.send('hello world');
-});
 
 module.exports = app;

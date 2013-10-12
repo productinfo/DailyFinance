@@ -1,4 +1,5 @@
 {
   "port": "1985",
-  "client": "client"
+  "client": "client",
+  "server": "server"
 }

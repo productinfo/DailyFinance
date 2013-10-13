@@ -7,7 +7,6 @@ var express = require('express'),
 
 app.use(express.logger('dev'));
 
-// ?
 app.use(function staticsPlaceholder(req, res, next) {
   return next();
 });
@@ -30,6 +29,10 @@ passport.deserializeUser(Authentication.deserializeUser);
 app.post('/login', Authentication.login);
 
 // logout
-app.get('logout', Authentication.logout);
+app.get('/logout', Authentication.logout);
+
+app.get('/user', Authentication.ensureAuthenticated, function (req, res) {
+  return res.json(req.session.user);
+});
 
 module.exports = app;

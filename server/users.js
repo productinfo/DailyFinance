@@ -4,7 +4,7 @@ require('sugar');
 
 var users = [{
   id: 1,
-  username: 'leo',
+  email: 'leo0924@gmail.com',
   password: 'pw'
 }];
 
@@ -14,9 +14,9 @@ module.exports = {
       return user.id === id;
     });
   },
-  findByUsername: function (username) {
+  findByEmail: function (email) {
     return users.find(function (user) {
-      return user.username === username;
+      return user.email === email;
     });
   }
 };

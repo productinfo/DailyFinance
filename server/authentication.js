@@ -5,11 +5,11 @@ var passport = require('passport'),
   User = require('./users');
 
 module.exports = {
-  localStrategy: new LocalStrategy(function (username, password, done) {
-    var user = User.findByUsername(username);
+  localStrategy: new LocalStrategy(function (email, password, done) {
+    var user = User.findByEmail(email);
     if (!user) {
       return done(null, false, {
-        message: 'Incorrect username.'
+        message: 'Incorrect email.'
       });
     } else if (user.password !== password) {
       return done(null, false, {
@@ -40,7 +40,7 @@ module.exports = {
       }
       if (!user) {
         return res.send(400, {
-          message: 'Bad username or password.'
+          message: 'Bad email or password.'
         });
       }
       req.logIn(user, function (err) {

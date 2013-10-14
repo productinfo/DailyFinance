@@ -51,7 +51,8 @@ angular.module('DailyFinanceApp', [
   })
   .service('AuthenticationService', function ($http, $timeout, $q, $session, $flash) {
     this.login = function (credentials) {
-      var login = $http.post('/login');
+      console.log(credentials);
+      var login = $http.post('/login', credentials);
       login.success(function (user) {
         $session.set('user', user);
         $flash.clear();

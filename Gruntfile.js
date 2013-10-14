@@ -47,6 +47,8 @@ exports = module.exports = function (grunt) {
         cssDir: '.tmp/css',
         javascriptsDir: config.client + '/js',
         importPath: config.client + '/bower_components',
+        // httpFontsPath: '/fonts',
+        // fontsDir: config.client + '/fonts',
         relativeAssets: false
       },
       server: {

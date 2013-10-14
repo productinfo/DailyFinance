@@ -5,6 +5,7 @@
     "angular": "~1.2.0-rc.2",
     "angular-route": "~1.2.0-rc.2",
     "angular-resource": "~1.2.0-rc.2",
-    "sass-bootstrap": "~3.0.0"
+    "sass-bootstrap": "~3.0.0",
+    "sugar": "~1.4.1"
   }
 }

@@ -1,1 +1,24 @@
-<div>login</div>
+<div class="container">
+  <div class="row">
+    <form method="post" class="well col-xs-6" ng-submit="login()">
+      <fieldset>
+        <legend>Daily Finance Web App</legend>
+        <h5><small>Please login with your account</small></h5>
+        <label for="username">Username</label>
+        <div></div>
+        <input type="text" class="col-xs-12" ng-model="credentials.username" required>
+        <div></div>
+        <label for="password">Password</label>
+        <div></div>
+        <input type="password" class="col-xs-12" ng-model="credentials.password" required>
+        <label for=""></label>
+        <button type="submit" class="btn btn-primary col-xs-12">
+          <span class="glyphicon glyphicon-lock"></span>  Sign in
+        </button>
+      </fieldset>
+      <label for=""></label>
+      <div id="flash" class="col-xs-12 alert alert-warning" ng-show="flash">{{ flash }}</div>
+    </form>
+
+  </div>
+</div>

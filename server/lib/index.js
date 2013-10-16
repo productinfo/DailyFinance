@@ -35,4 +35,6 @@ app.get('/user', Authentication.ensureAuthenticated, function (req, res) {
   return res.json(req.session.user);
 });
 
+require('./api')(app);
+
 module.exports = app;

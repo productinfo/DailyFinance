@@ -34,7 +34,7 @@ exports = module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          server: path.resolve(config.server),
+          server: path.resolve(config.server + '/lib'),
           bases: [path.resolve('./.tmp'), path.resolve(config.client)],
           livereload: true,
           serverreload: true
@@ -72,7 +72,7 @@ exports = module.exports = function (grunt) {
         jshintrc: '.jshintrc'
       },
       all: [
-        'server/*.*',
+        'server/lib/*.*',
         'Gruntfile.js',
         'index.js'
       ]

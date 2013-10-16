@@ -2,25 +2,41 @@
 
 <div class="container">
 
-<form action="post" class="panel panel-default col-md-6 col-md-offset-3" role="form">
-
-  <fieldset>
-    <legend>XXX</legend>
-    <p class="input-group">
-      <span class="input-group-addon">@</span>
-      <input type="text" class="form-control" placeholder="Username">
-    </p>
-    <p class="input-group">
-      <span class="input-group-addon">$</span>
-      <input type="text" class="form-control">
-      <span class="input-group-addon">.00</span>
-    </p>
-  </fieldset>
-
-<button type="submit" class="btn btn-primary col-xs-12" ng-click="">
-  <span class="glyphicon glyphicon-plus-sign"></span>  Add
-</button>
-
-</form>
+  <div class="container">
+    <div class="row">
+      <form class="panel panel-default col-md-6 col-md-offset-3" role="form">
+        <fieldset>
+          <legend>Create New Task</legend>
+          <h5><small>Please input details</small></h5>
+          <p class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-book"></span>
+            </span>
+            <input type="text" class="form-control" ng-model="task.name" placeholder="Item Name" required autofocus>
+          </p>
+          <p class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-usd"></span>
+            </span>
+            <input type="number" class="form-control" ng-model="task.price" placeholder="0.00" required>
+          </p>
+          <p class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            <input type="date" class="form-control" ng-model="task.date">
+          </p>
+          <p class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-dashboard"></span>
+            </span>
+            <input type="time" class="form-control" ng-model="task.time">
+          </p>
+          <button type="submit" class="btn btn-primary col-xs-12" ng-click="create()">Create New Task</button>
+        </fieldset>
+        <label for=""></label>
+      </form>
+    </div>
+  </div>
 
 </div>

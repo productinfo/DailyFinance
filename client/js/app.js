@@ -59,6 +59,7 @@ angular.module('DailyFinanceApp', [
         error = error.error ? error.error : error;
         $flash.show(error.message || error);
       });
+      console.log(login);
       return login;
     };
 

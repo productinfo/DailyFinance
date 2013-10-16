@@ -1,9 +1,18 @@
 'use strict';
 
 function app$api ($resource) {
-  return $resource('/api/:id', {}, {
+  return $resource('/api/task/:userId', {}, {
     get: {
-
+      method: 'GET'
+    },
+    create: {
+      method: 'POST'
+    },
+    update: {
+      method: 'PUT'
+    },
+    delete: {
+      method: 'DELETE'
     }
   });
 }

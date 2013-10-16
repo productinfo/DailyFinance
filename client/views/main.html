@@ -1,19 +1,22 @@
+<div ng-include src="'views/nav.html'"></div>
+
 <div class="container">
-  <div class="row">
-    <div ng-if="data.length === 0">YA</div>
-    <div ng-if="data.length !== 0">
-      <ul class="list-group">
-        <li class="list-group-item" ng-repeat="item in data">
-          <div>{{item.name}}</div>
-          <div>{{item.price}}</div>
-          <div>{{item.time}}</div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <button type="submit" class="btn btn-primary col-xs-12">
-      <span class="glyphicon glyphicon-plus-sign"></span>  Add
-    </button>
-  </div>
+
+<div ng-if="data.length === 0">YA</div>
+<div ng-if="data.length !== 0">
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="item in data">
+      <div class="list-group-item">
+        <span>{{item.name}}</span>
+        <span>{{item.price}}</span>
+        <span>{{item.time}}</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<button type="submit" class="btn btn-primary col-xs-12" ng-click="addNew()">
+  <span class="glyphicon glyphicon-plus-sign"></span>  Add New
+</button>
+
 </div>

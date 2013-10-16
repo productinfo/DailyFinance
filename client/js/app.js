@@ -51,7 +51,6 @@ angular.module('DailyFinanceApp', [
   })
   .service('AuthenticationService', function ($http, $timeout, $q, $session, $flash) {
     this.login = function (credentials) {
-      console.log(credentials);
       var login = $http.post('/login', credentials);
       login.success(function (user) {
         $session.set('user', user);
@@ -118,6 +117,11 @@ angular.module('DailyFinanceApp', [
         title: 'Login',
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
+      })
+      .when('/addNew', {
+        title: 'Add New',
+        templateUrl: 'views/addNew.html',
+        controller: 'AddNewCtrl'
       })
       .otherwise({
         redirectTo: '/login'

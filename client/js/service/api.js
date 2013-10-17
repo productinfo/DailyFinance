@@ -1,9 +1,13 @@
 'use strict';
 
 function app$api ($resource) {
-  return $resource('/api/task/:userId', {}, {
-    get: {
-      method: 'GET'
+  return $resource('/api/task', {}, {
+    query: {
+      method: 'GET',
+      params: {
+        userId: '@userId'
+      },
+      isArray:true
     },
     create: {
       method: 'POST'

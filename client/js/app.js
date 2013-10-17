@@ -16,10 +16,10 @@ angular.module('DailyFinanceApp', [
   .factory('$session', function () {
     return {
       get: function (key) {
-        return sessionStorage.getItem(key);
+        return angular.fromJson(sessionStorage.getItem(key));
       },
       set: function (key, value) {
-        return sessionStorage.setItem(key, value);
+        return sessionStorage.setItem(key, angular.toJson(value));
       },
       unset: function (key) {
         return sessionStorage.removeItem(key);
@@ -59,7 +59,6 @@ angular.module('DailyFinanceApp', [
         error = error.error ? error.error : error;
         $flash.show(error.message || error);
       });
-      console.log(login);
       return login;
     };
 

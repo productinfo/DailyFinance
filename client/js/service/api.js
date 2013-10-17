@@ -1,7 +1,7 @@
 'use strict';
 
 function app$api($resource) {
-  return $resource('/api/task', {}, {
+  return $resource('/api/expense', {}, {
     query: {
       method: 'GET',
       params: {

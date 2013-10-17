@@ -6,15 +6,15 @@ var data = require('../data/data').data,
 
 module.exports = function (app) {
 
-  app.get('/api/task', Authentication.ensureAuthenticated, function (req, res) {
+  app.get('/api/expense', Authentication.ensureAuthenticated, function (req, res) {
     var userId = req.query.userId;
     var userData = data.find(function (obj) {
       return obj.userId === userId;
     });
-    res.json(userData.task);
+    res.json(userData.expense);
   });
 
-  app.post('/api/task', Authentication.ensureAuthenticated, function (req, res) {
+  app.post('/api/expense', Authentication.ensureAuthenticated, function (req, res) {
     var userId = req.query.userId;
     var payload = req.query.payload;
     console.log(userId);

@@ -30,11 +30,11 @@ angular.module('DailyFinanceApp', [
     };
   })
   .factory('LogoutHttpInterceptor', function ($location, $q, $session) {
-    var success = function(response) {
+    var success = function (response) {
       return response;
     };
 
-    var error = function(response) {
+    var error = function (response) {
       // unauthorized
       if (response.status === 401) {
         $session.unset('user');
@@ -47,7 +47,7 @@ angular.module('DailyFinanceApp', [
 
     return function (promise) {
       return promise.then(success, error);
-    }
+    };
   })
   .service('AuthenticationService', function ($http, $timeout, $q, $session, $flash) {
     this.login = function (credentials) {
@@ -87,25 +87,29 @@ angular.module('DailyFinanceApp', [
   .config(function ($httpProvider) {
     $httpProvider.responseInterceptors.push('LogoutHttpInterceptor');
   })
-  .run(['$rootScope', '$location', 'AuthenticationService', function ($rootScope, $location, AuthenticationService) {
-    // logout
-    $rootScope.logout = function () {
-      var logout = AuthenticationService.logout();
-      logout.then(function () {
-        $location.path('/login');
+  .run(['$rootScope', '$location', 'AuthenticationService',
+    function ($rootScope, $location, AuthenticationService) {
+      // logout
+      $rootScope.logout = function () {
+        var logout = AuthenticationService.logout();
+        logout.then(function () {
+          $location.path('/login');
+        });
+        return logout;
+      };
+    }
+  ])
+  .run(['$rootScope', '$location', 'AuthenticationService',
+    function ($rootScope, $location, AuthenticationService) {
+      // login
+      var publicRoutes = ['/login'];
+      $rootScope.$on('$routeChangeStart', function () {
+        if (publicRoutes.indexOf($location.path()) === -1) {
+          AuthenticationService.user();
+        }
       });
-      return logout;
-    };
-  }])
-  .run(['$rootScope', '$location', 'AuthenticationService', function ($rootScope, $location, AuthenticationService) {
-    // login
-    var publicRoutes = ['/login'];
-    $rootScope.$on('$routeChangeStart', function () {
-      if (publicRoutes.indexOf($location.path()) === -1) {
-        AuthenticationService.user();
-      }
-    });
-  }])
+    }
+  ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

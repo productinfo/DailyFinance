@@ -11,7 +11,7 @@ angular.module('DailyFinanceApp')
       $scope.data = data;
     });
 
-    $scope.addNew = function() {
+    $scope.addNew = function () {
       $location.path('/addNew');
     };
   });

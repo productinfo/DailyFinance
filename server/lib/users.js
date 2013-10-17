@@ -3,11 +3,11 @@
 require('sugar');
 
 var users = [{
-  id: 1,
+  id: '1',
   email: 'g@g.com',
   password: 'gg'
 }, {
-  id: 2,
+  id: '2',
   email: 'f@f.com',
   password: 'ff'
 }];

@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('AddNewCtrl', function ($scope, $api) {
-    $scope.create = function() {
-      console.log(this.task);
+  .controller('AddNewCtrl', function ($scope, $session, $api) {
+    var userId = $session.get('user').id;
+    $scope.create = function () {
+      console.log(this.expense);
       $api.create({
-
-      }).$promise.then(function () {
-        console.log('s');
+        userId: userId,
+        payload: this.expense
       }, function () {
-        console.log('e');
+
       });
     };
   });

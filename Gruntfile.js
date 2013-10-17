@@ -73,6 +73,7 @@ exports = module.exports = function (grunt) {
       },
       all: [
         'server/lib/*.*',
+        'client/js/*.*',
         'Gruntfile.js',
         'index.js'
       ]
@@ -82,10 +83,10 @@ exports = module.exports = function (grunt) {
         config: '.jsbeautifyrc'
       },
       build: {
-        src: ['Gruntfile.js', 'client/app/**/*.{js,json,css,html}', '!client/app/bower_components/**/*.*', 'server/*.*']
+        src: ['Gruntfile.js', 'client/**/*.{js,json,css,html}', '!client/bower_components/**/*.*', 'server/*.*']
       },
       ci: {
-        src: ['Gruntfile.js', 'client/app/**/*.{js,json,css,html}', '!client/app/bower_components/**/*.*', 'server/*.*'],
+        src: ['Gruntfile.js', 'client/**/*.{js,json,css,html}', '!client/bower_components/**/*.*', 'server/*.*'],
         options: {
           mode: 'VERIFY_ONLY'
         }

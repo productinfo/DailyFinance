@@ -1,7 +1,7 @@
 'use strict';
 
 function app$api($resource) {
-  return $resource('/api/expense', {}, {
+  return $resource('/api/expense/:expenseId', {}, {
     query: {
       method: 'GET',
       params: {
@@ -9,9 +9,9 @@ function app$api($resource) {
       },
       isArray: true
     },
-    // get: {
-    //   method: 'GET',
-    // },
+    get: {
+      method: 'GET',
+    },
     create: {
       method: 'POST',
       params: {

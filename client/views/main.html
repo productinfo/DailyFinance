@@ -6,7 +6,7 @@
   <div ng-if="data.length !== 0">
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="item in data">
-        <a class="list-group-item" href="#/detail/{{data.id}}">
+        <a class="list-group-item" href="#/detail/{{item.expenseId}}">
           <span>{{item.name}}</span>
           <span>{{item.price}}</span>
           <span>{{item.time}}</span>
@@ -16,7 +16,7 @@
   </div>
 
   <button type="submit" class="btn btn-primary col-xs-12" ng-click="addNew()">
-    <span class="glyphicon glyphicon-plus-sign"></span>Add New Expense
+    <span class="glyphicon glyphicon-plus-sign"></span>{{addButtonTitle}}
   </button>
 
 </div>

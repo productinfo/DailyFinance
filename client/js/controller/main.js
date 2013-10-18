@@ -5,6 +5,8 @@ angular.module('DailyFinanceApp')
 
     var userId = $session.get('user').id;
 
+    $scope.addButtonTitle = '  Add New Expense';
+
     $api.query({
       userId: userId
     }, function (data) {

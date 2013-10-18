@@ -9,11 +9,13 @@ module.exports = {
     var userData = data.find(function (obj) {
       return obj.userId === userId;
     });
-    res.json(userData.expense);
+    res.json(userData.expenses);
   },
-  // getDetail: function (req, res) {
-
-  // },
+  getDetail: function (req, res) {
+    var expenseId = req.query.expenseId;
+    console.log(expenseId);
+    res.send(200);
+  },
   createNew: function (req, res) {
     var userId = req.query.userId;
     var payload = req.query.payload;

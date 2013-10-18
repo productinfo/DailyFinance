@@ -9,6 +9,9 @@ function app$api($resource) {
       },
       isArray: true
     },
+    // get: {
+    //   method: 'GET',
+    // },
     create: {
       method: 'POST',
       params: {

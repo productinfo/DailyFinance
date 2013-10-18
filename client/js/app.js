@@ -127,6 +127,11 @@ angular.module('DailyFinanceApp', [
         templateUrl: 'views/addNew.html',
         controller: 'AddNewCtrl'
       })
+      .when('/detail/:id', {
+        title: 'Detail',
+        templateUrl: 'views/detail.html',
+        controller: 'DetailCtrl'
+      })
       .otherwise({
         redirectTo: '/login'
       });

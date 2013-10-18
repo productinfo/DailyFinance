@@ -6,11 +6,11 @@
   <div ng-if="data.length !== 0">
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="item in data">
-        <div class="list-group-item">
+        <a class="list-group-item" href="#/detail/{{data.id}}">
           <span>{{item.name}}</span>
           <span>{{item.price}}</span>
           <span>{{item.time}}</span>
-        </div>
+        </a>
       </li>
     </ul>
   </div>

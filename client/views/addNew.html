@@ -1,44 +1,5 @@
 <div ng-include src="'views/nav.html'"></div>
 
-<div class="container">
+<div ng-include src="'views/content.html'"></div>
 
-  <div class="container">
-    <div class="row">
-      <form class="panel panel-default col-md-6 col-md-offset-3" role="form">
-        <fieldset>
-          <legend>Create New Task</legend>
-          <h5>
-            <small>Please input details</small>
-          </h5>
-          <p class="input-group">
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-book"></span>
-            </span>
-            <input type="text" class="form-control" ng-model="expense.name" placeholder="Item Name" required autofocus>
-          </p>
-          <p class="input-group">
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-usd"></span>
-            </span>
-            <input type="number" step="any" class="form-control" ng-model="expense.price" placeholder="0.00" required>
-          </p>
-          <p class="input-group">
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-            <input type="date" class="form-control" ng-model="expense.date">
-          </p>
-          <p class="input-group">
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-dashboard"></span>
-            </span>
-            <input type="time" class="form-control" ng-model="expense.time">
-          </p>
-          <button type="submit" class="btn btn-primary col-xs-12" ng-disabled="!(expense.name && expense.price)" ng-click="create()">Create New Task</button>
-        </fieldset>
-        <label for=""></label>
-      </form>
-    </div>
-  </div>
 
-</div>

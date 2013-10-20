@@ -1,7 +1,6 @@
 'use strict';
 
 require('sugar');
-// var data = require('../data/data').data,
 var ExpenseModel = require('../mongodb/model/expense').ExpenseModel;
 
 module.exports = {

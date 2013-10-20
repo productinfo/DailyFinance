@@ -10,13 +10,13 @@
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-book"></span>
           </span>
-          <input type="text" class="form-control" ng-model="expense.name" placeholder="Item Name" required autofocus>
+          <input type="text" class="form-control" ng-model="expense.name" placeholder="Item Name (required)" autofocus>
         </p>
         <p class="input-group">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-usd"></span>
           </span>
-          <input type="number" step="any" class="form-control" ng-model="expense.price" placeholder="0.00" required>
+          <input type="number" step="any" class="form-control" ng-model="expense.price" placeholder="0.00 (required)">
         </p>
         <p class="input-group">
           <span class="input-group-addon">
@@ -31,7 +31,7 @@
           <input type="time" class="form-control" ng-model="expense.time">
         </p>
         <p>
-          <button type="submit" class="btn btn-danger col-xs-12" ng-if="contentConfig.isDeleteButtonShow" ng-click="delete()">
+          <button type="submit" class="btn btn-danger col-xs-12" ng-if="contentConfig.isDeleteButtonShow" ng-click="showWarningModal()">
             <span class="glyphicon glyphicon-trash"></span>{{contentConfig.deleteButtonTitle}}
           </button>
         </p>

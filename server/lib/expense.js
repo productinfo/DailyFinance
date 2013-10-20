@@ -1,19 +1,25 @@
 'use strict';
 
 require('sugar');
-var data = require('../data/data').data;
+// var data = require('../data/data').data,
+var ExpenseModel = require('../mongodb/model/expense').ExpenseModel;
 
 module.exports = {
   getList: function (req, res) {
     var userId = req.query.userId;
-    var userData = data.find(function (obj) {
-      return obj.userId === userId;
+    ExpenseModel.find({
+      uesrId: userId
+    }, function (err, data) {
+      if (err) {
+        res.send(500);
+      }
+      res.json(data);
     });
-    res.json(userData.expenses);
   },
   getDetail: function (req, res) {
-    var expenseId = req.query.expenseId;
-    console.log(expenseId);
+    console.log(req.query);
+    console.log(req.params);
+    var expenseId = req.params.expenseId;
     res.send(200);
   },
   createNew: function (req, res) {

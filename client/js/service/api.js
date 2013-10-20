@@ -11,6 +11,9 @@ function app$api($resource) {
     },
     get: {
       method: 'GET',
+      params: {
+        userId: '@userId'
+      }
     },
     create: {
       method: 'POST',

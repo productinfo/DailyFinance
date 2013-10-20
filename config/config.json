@@ -1,5 +1,6 @@
 {
   "port": "1985",
   "client": "client",
-  "server": "server"
+  "server": "server",
+  "mongodbUrl": "mongodb://localhost/test"
 }

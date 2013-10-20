@@ -6,7 +6,7 @@
   <div ng-if="data.length !== 0">
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="item in data">
-        <a class="list-group-item" href="#/detail/{{item.expenseId}}">
+        <a class="list-group-item" href="#/detail/{{item.expenseId}}?userId={{item.uesrId}}">
           <span>{{item.name}}</span>
           <span>{{item.price}}</span>
           <span>{{item.time}}</span>

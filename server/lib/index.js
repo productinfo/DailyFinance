@@ -1,10 +1,15 @@
 'use strict';
 
-var express = require('express'),
+var path = require('path'),
+  express = require('express'),
   passport = require('passport'),
   app = express(),
-  Authentication = require('./authentication');
+  Authentication = require('./authentication'),
+  configLoader = require('konphyg')(path.resolve(__dirname, '../../config')),
+  config = configLoader('config'),
+  mongoose = require('mongoose');
 
+mongoose.connect(config.mongodbUrl);
 app.use(express.logger('dev'));
 
 app.use(function staticsPlaceholder(req, res, next) {

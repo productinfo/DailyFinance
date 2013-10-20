@@ -3,12 +3,12 @@
 var mongoose = require('mongoose');
 
 var ExpenseSchema = mongoose.Schema({
-  data: [
-    userId: Number,
-    expenses: [
-
-    ]
-  ]
+  uesrId: Number,
+  expenseId: Number,
+  name: String,
+  price: Number,
+  date: String,
+  time: String
 });
 
 module.exports.ExpenseSchema = ExpenseSchema;

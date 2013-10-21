@@ -52,7 +52,10 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('s');
 // });
 
-ExpenseModel.find(function (err, expense) {
+ExpenseModel.find({
+  uesrId: 1,
+  expenseId: 101
+}, function (err, expense) {
   if (err) {
     console.log(err);
   }

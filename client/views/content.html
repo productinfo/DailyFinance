@@ -36,7 +36,7 @@
           </button>
         </p>
         <p>
-          <button type="submit" class="btn btn-primary col-xs-12" ng-disabled="!(expense.name && expense.price)" ng-click="create()">
+          <button type="submit" class="btn btn-primary col-xs-12" ng-disabled="!(expense.name && expense.price)" ng-click="{{contentConfig.buttonFunction}}">
             <span class="glyphicon glyphicon-plus-sign"></span>{{contentConfig.submitButtonTitle}}
           </button>
         </p>

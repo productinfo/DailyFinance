@@ -9,8 +9,15 @@ angular.module('DailyFinanceApp')
 
     $api.query({
       userId: userId
-    }, function (data) {
+    }).$promise.then(function (data) {
       $scope.data = data;
+    }, function () {
+      console.log('eee');
+      console.log($('#errorWarning'));
+      // error
+      $('#errorWarning').modal({
+        show: true
+      });
     });
 
     $scope.addNew = function () {

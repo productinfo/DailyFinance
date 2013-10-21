@@ -7,11 +7,15 @@ angular.module('DailyFinanceApp')
     $scope.contentConfig = $contentConfig.addNew;
 
     $scope.create = function () {
+      console.log('create');
       $api.create({
         userId: userId,
         payload: this.expense
-      }, function () {
+      }).$promise.then(function () {
 
+      }, function () {
+        // error
+        $('#errorWarning').modal();
       });
     };
   });

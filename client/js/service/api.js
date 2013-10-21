@@ -10,10 +10,7 @@ function app$api($resource) {
       isArray: true
     },
     get: {
-      method: 'GET',
-      params: {
-        userId: '@userId'
-      }
+      method: 'GET'
     },
     create: {
       method: 'POST',
@@ -23,7 +20,12 @@ function app$api($resource) {
       }
     },
     update: {
-      method: 'PUT'
+      method: 'PUT',
+      params: {
+        expenseId: '@expenseId',
+        userId: '@userId',
+        payload: '@payload'
+      }
     },
     delete: {
       method: 'DELETE'

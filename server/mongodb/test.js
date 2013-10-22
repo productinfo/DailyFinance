@@ -15,9 +15,9 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 // });
 
 // var Leo = new UserModel({
-//   uesrId: 1,
-//   email: 'leo@google.com',
-//   password: 'leo'
+//   uesrId: 2,
+//   email: 'leoj@google.com',
+//   password: 'leoj'
 // });
 
 // Leo.save(function (err) {
@@ -27,18 +27,18 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('s');
 // });
 
-// UserModel.find(function (err, user) {
-//   if (err) {
-//     console.log(err);
-//   }
-//   console.log(user);
-// });
+UserModel.find(function (err, user) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(user);
+});
 
 // Expense
 
 // var d1 = new ExpenseModel({
-//   uesrId: 2,
-//   expenseId: 202,
+//   uesrId: 1,
+//   expenseId: 101,
 //   name: 'gg2',
 //   price: 32.1,
 //   date: '',
@@ -52,12 +52,11 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('s');
 // });
 
-ExpenseModel.find({
-  uesrId: 1,
-  expenseId: 101
-}, function (err, expense) {
-  if (err) {
-    console.log(err);
-  }
-  console.log(expense);
-});
+// ExpenseModel.find({
+//   uesrId: 2
+// }, function (err, expense) {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(expense);
+// });

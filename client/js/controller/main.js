@@ -2,8 +2,7 @@
 
 angular.module('DailyFinanceApp')
   .controller('MainCtrl', function ($scope, $session, $location, $api) {
-
-    var userId = $session.get('user').id;
+    var userId = $session.get('user').uesrId;
 
     $scope.addButtonTitle = '  Add New Expense';
 

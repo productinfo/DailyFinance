@@ -2,36 +2,61 @@
 
 var passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
-  User = require('./users');
+  UserModel = require('../mongodb/model/user').UserModel;
 
 module.exports = {
   localStrategy: new LocalStrategy(function (email, password, done) {
-    var user = User.findByEmail(email);
-    if (!user) {
-      return done(null, false, {
-        message: 'Incorrect email.'
-      });
-    } else if (user.password !== password) {
-      return done(null, false, {
-        message: 'Incorrect password.'
-      });
-    } else {
-      return done(null, user);
-    }
+    UserModel.find({
+      email: email
+    }, function (err, users) {
+      var user;
+      if (err) {
+        console.log(err);
+        return done(null, false, {
+          message: 'Internal server error.'
+        });
+      }
+
+      user = users[0];
+
+      if (!user) {
+        return done(null, false, {
+          message: 'Incorrect email.'
+        });
+      } else if (user.password !== password) {
+        return done(null, false, {
+          message: 'Incorrect password.'
+        });
+      } else {
+        return done(null, user);
+      }
+    });
   }),
 
   // session useage
   serializeUser: function (user, done) {
-    done(null, user.id);
+    done(null, user.uesrId);
   },
 
-  deserializeUser: function (id, done) {
-    var user = User.findById(id);
-    if (user) {
-      done(null, user);
-    } else {
-      done(null, false);
-    }
+  deserializeUser: function (uesrId, done) {
+    UserModel.find({
+      uesrId: uesrId
+    }, function (err, users) {
+      var user;
+      if (err) {
+        return done(null, false, {
+          message: 'Internal server error.'
+        });
+      }
+
+      user = users[0];
+
+      if (user) {
+        done(null, user);
+      } else {
+        done(null, false);
+      }
+    });
   },
   login: function (req, res, next) {
     return passport.authenticate('local', function (err, user) {

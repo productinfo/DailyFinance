@@ -28,7 +28,10 @@ function app$api($resource) {
       }
     },
     delete: {
-      method: 'DELETE'
+      method: 'DELETE',
+      params: {
+        userId: '@userId'
+      }
     }
   });
 }

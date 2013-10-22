@@ -13,11 +13,16 @@ angular.module('DailyFinanceApp')
     };
 
     $scope.delete = function () {
-      console.log('delete');
+      $('#deleteWarning').modal('hide');
       $api.delete({
         expenseId: expenseId
-      }).$promise.then(function (data) {
-        $('#deleteWarning').modal('hide');
+      }, {
+        userId: userId,
+      }).$promise.then(function () {
+        $('#deleteWarning').on('hidden.bs.modal', function () {
+          $location.search('userId', null).path('/');
+          $scope.$apply();
+        });
       }, function () {
         // error
         $('#errorWarning').modal();
@@ -30,8 +35,9 @@ angular.module('DailyFinanceApp')
       }, {
         userId: userId,
         payload: $scope.expense
-      }).$promise.then(function (data) {
-        $location.path('/');
+      }).$promise.then(function () {
+        $location.search('userId', null).path('/');
+        // $location.path('/');
       }, function () {
         // error
         $('#errorWarning').modal();
@@ -41,13 +47,7 @@ angular.module('DailyFinanceApp')
     $api.get({
       expenseId: expenseId
     }).$promise.then(function (data) {
-      console.log(data);
-      $scope.expense = {
-        name: data.name,
-        price: data.price,
-        date: data.date,
-        time: data.time
-      };
+      $scope.expense = data;
     }, function () {
       // error
       $('#errorWarning').modal();

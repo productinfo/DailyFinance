@@ -24,7 +24,7 @@ module.exports = {
       data = expenseCache.find(function (expense) {
         return expense.expenseId.toString() === expenseId;
       });
-
+    console.log(data);
     if (data) {
       res.json(data);
     } else {
@@ -53,8 +53,9 @@ module.exports = {
     });
   },
   delete: function(req, res) {
-    var expenseId = req.params.expenseId;
-    console.log(expenseId);
+    var userId = req.query.userId,
+      expenseId = req.params.expenseId;
+    console.log(expenseId, userId);
     res.send(200);
   },
   create: function (req, res) {

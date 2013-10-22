@@ -130,7 +130,8 @@ angular.module('DailyFinanceApp', [
       .when('/detail/:id', {
         title: 'Detail',
         templateUrl: 'views/detail.html',
-        controller: 'DetailCtrl'
+        controller: 'DetailCtrl',
+        reloadOnSearch: false
       })
       .otherwise({
         redirectTo: '/login'

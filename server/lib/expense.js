@@ -56,7 +56,16 @@ module.exports = {
     var userId = req.query.userId,
       expenseId = req.params.expenseId;
     console.log(expenseId, userId);
-    res.send(200);
+    ExpenseModel.remove({
+      uesrId: userId,
+      expenseId: expenseId
+    }, function (err) {
+      if (err) {
+        console.log(err);
+        res.send(500);
+      }
+      res.send(200);
+    });
   },
   create: function (req, res) {
     var userId = req.query.userId;

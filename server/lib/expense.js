@@ -68,10 +68,21 @@ module.exports = {
     });
   },
   create: function (req, res) {
-    var userId = req.query.userId;
-    var payload = req.query.payload;
-    console.log(userId);
-    console.log(payload);
-    res.send(200);
+    var userId = req.query.userId,
+      payload = JSON.parse(req.query.payload);
+    ExpenseModel.create({
+      uesrId: userId,
+      expenseId: 104,
+      name: payload.name,
+      price: payload.price,
+      date: payload.date,
+      time: payload.time
+    }, function (err) {
+      if (err) {
+        console.log(err);
+        res.send(500);
+      }
+      res.send(201);
+    });
   }
 };

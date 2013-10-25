@@ -1,5 +1,25 @@
+@mixin blur($alpha) {
+  -webkit-filter: blur($alpha);
+  -moz-filter: blur($alpha);
+  -o-filter: blur($alpha);
+  -ms-filter: blur($alpha);
+  filter: blur($alpha);
+  opacity: 0.25;
+}
+
 body {
   background: #d6f0fd;
+}
+
+.blur-background {
+  background: #d6f0fd;
+  position: fixed;
+  width: 100%;
+  height: 900px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  @include blur(40px);
 }
 
 .panel {

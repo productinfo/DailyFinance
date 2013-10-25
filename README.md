@@ -1,13 +1,12 @@
 # DailyFinance
 
 ### Run the app
-To run the application **you need to have the mongoDB running on the local or remote machine**, otherwise the code will broken and will not be able to run. Once the database complete, please do.
+To run the application **you need to have the mongoDB running on the local or remote machine**, all you need to do is specify the mongoDB url in the [config file](https://github.com/LeoAJ/DailyFinance/blob/master/config/config.json#L5), otherwise the code will broken and will not be able to run. Once the database complete, please do.
 
 ```
 npm install
 bower install
 grunt server
-
 ```
 
 ### Check the code quality
@@ -31,8 +30,8 @@ grunt test
 ### Server
 
 ### Client
-* Use [AngularJS](http://) as main javascript framework to build the MVC structure of UI.
-* Use [Bootstrap 3](http://) as main css framework to automatically adjust layout in different devices such as mobile, tablet and laptop.
+* Use [AngularJS](http://angularjs.org) as main javascript framework to build the MVC structure of UI.
+* Use [Bootstrap 3](http://getbootstrap.com) as main css framework to automatically adjust layout in different devices such as mobile, tablet and laptop.
 
 ### Grunt libraries
 

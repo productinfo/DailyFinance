@@ -7,8 +7,10 @@ DailyFinance is a end to end web application to let people easily save the each 
 ##### Pre-required
 You need to have those tools installed first before you go to next step.
 
-* node.js and npm
-* bower
+* [node.js](http://nodejs.org/)
+* [npm](http://npmjs.org)
+* [bower](http://bower.io)
+* [grunt](http://gruntjs.com)
 
 To run the application **you need to have the mongoDB running on the local or remote machine**, all you need to do is specify the mongoDB url in the [config file](https://github.com/LeoAJ/DailyFinance/blob/master/config/config.json#L5), otherwise the code will broken and will not be able to run. Once the database setting is completed, please do.
 

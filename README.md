@@ -1,5 +1,7 @@
 # DailyFinance
 
+DailyFinance is a end to end web application to let people easily save the each single expense they spent any where any time throgh any devices, all you need is web connection.
+
 ### Run the app
 To run the application **you need to have the mongoDB running on the local or remote machine**, all you need to do is specify the mongoDB url in the [config file](https://github.com/LeoAJ/DailyFinance/blob/master/config/config.json#L5), otherwise the code will broken and will not be able to run. Once the database complete, please do.
 

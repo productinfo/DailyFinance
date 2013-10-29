@@ -2,7 +2,7 @@
 
 DailyFinance is a end to end web application to let people easily save the each single expense they spent any where any time throgh any devices, all you need is web connection.
 
-### Run the app
+## Run the app
 
 ##### Pre-required
 You need to have those tools installed first before you go to next step.
@@ -35,17 +35,17 @@ Run karma unit testing.
 grunt test
 ```
 
-### Database (MongoDB)
+## Database (MongoDB)
 
-### RESTful API
+## RESTful API
 
-### Server
+## Server
 
 ### Client
 * Use [AngularJS](http://angularjs.org) as main javascript framework to build the MVC structure of UI.
 * Use [Bootstrap 3](http://getbootstrap.com) as main css framework to automatically adjust layout in different devices such as mobile, tablet and laptop.
 
-### Grunt libraries
+## Grunt libraries
 
 * watch
 * express

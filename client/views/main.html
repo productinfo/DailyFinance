@@ -9,6 +9,7 @@
         <a class="list-group-item" href="#/detail/{{item.expenseId}}?userId={{item.uesrId}}">
           <span>{{item.name}}</span>
           <span>{{item.price}}</span>
+          <span>{{item.date | date:'medium'}}</span>
           <span>{{item.time}}</span>
         </a>
       </li>
@@ -18,7 +19,7 @@
   <button type="submit" class="btn btn-primary col-xs-12" ng-click="addNew()">
     <span class="glyphicon glyphicon-plus-sign"></span>{{addButtonTitle}}
   </button>
-
+  <label for=""></label>
 </div>
 
 <div ng-include src="'views/modal/errorWarning.html'"></div>

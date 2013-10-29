@@ -3,8 +3,8 @@
 var mongoose = require('mongoose');
 
 var ExpenseSchema = mongoose.Schema({
-  uesrId: Number,
-  expenseId: Number,
+  uesrId: String,
+  expenseId: String,
   name: String,
   price: Number,
   date: String,

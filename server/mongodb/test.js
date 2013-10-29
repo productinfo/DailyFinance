@@ -1,5 +1,5 @@
 'use strict';
-
+var uuid = require('node-uuid');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 // var db = mongoose.connection;
@@ -15,9 +15,9 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 // });
 
 // var Leo = new UserModel({
-//   uesrId: 2,
-//   email: 'leoj@google.com',
-//   password: 'leoj'
+//   uesrId: uuid.v4(),
+//   email: 'ryan@google.com',
+//   password: 'ryan'
 // });
 
 // Leo.save(function (err) {
@@ -27,18 +27,18 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('s');
 // });
 
-UserModel.find(function (err, user) {
-  if (err) {
-    console.log(err);
-  }
-  console.log(user);
-});
+// UserModel.find(function (err, user) {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(user);
+// });
 
 // Expense
 
 // var d1 = new ExpenseModel({
 //   uesrId: 1,
-//   expenseId: 101,
+//   expenseId: uuid.v4(),
 //   name: 'gg2',
 //   price: 32.1,
 //   date: '',
@@ -52,11 +52,18 @@ UserModel.find(function (err, user) {
 //   console.log('s');
 // });
 
-// ExpenseModel.find({
-//   uesrId: 2
-// }, function (err, expense) {
+// ExpenseModel.remove({
+//   expenseId: 202
+// }, function (err) {
 //   if (err) {
-//     console.log(err);
+//     console.log('error');
 //   }
-//   console.log(expense);
+//   console.log('remove');
 // });
+
+ExpenseModel.find(function (err, expense) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(expense);
+});

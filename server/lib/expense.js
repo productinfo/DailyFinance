@@ -1,7 +1,8 @@
 'use strict';
 
 require('sugar');
-var ExpenseModel = require('../mongodb/model/expense').ExpenseModel,
+var uuid = require('node-uuid'),
+  ExpenseModel = require('../mongodb/model/expense').ExpenseModel,
   expenseCache = [];
 
 module.exports = {
@@ -69,10 +70,11 @@ module.exports = {
   },
   create: function (req, res) {
     var userId = req.query.userId,
+      expenseId = uuid.v4(),
       payload = JSON.parse(req.query.payload);
     ExpenseModel.create({
       uesrId: userId,
-      expenseId: 104,
+      expenseId: expenseId,
       name: payload.name,
       price: payload.price,
       date: payload.date,

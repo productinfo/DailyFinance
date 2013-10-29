@@ -14,18 +14,18 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('connected!');
 // });
 
-// var Leo = new UserModel({
-//   uesrId: uuid.v4(),
-//   email: 'ryan@google.com',
-//   password: 'ryan'
-// });
+var Leo = new UserModel({
+  uesrId: uuid.v4(),
+  email: 'leo@facebook.com',
+  password: 'leo'
+});
 
-// Leo.save(function (err) {
-//   if (err) {
-//     console.log(err);
-//   }
-//   console.log('s');
-// });
+Leo.save(function (err) {
+  if (err) {
+    console.log(err);
+  }
+  console.log('s');
+});
 
 // UserModel.find(function (err, user) {
 //   if (err) {
@@ -61,9 +61,9 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('remove');
 // });
 
-ExpenseModel.find(function (err, expense) {
-  if (err) {
-    console.log(err);
-  }
-  console.log(expense);
-});
+// ExpenseModel.find(function (err, expense) {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(expense);
+// });

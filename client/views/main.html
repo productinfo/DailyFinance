@@ -2,7 +2,9 @@
 
 <div class="container">
 
-  <div ng-if="data.length === 0">YA</div>
+  <div ng-if="data.length === 0">
+    <div ng-include src="'views/empty.html'"></div>
+  </div>
   <div ng-if="data.length !== 0">
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="item in data">
@@ -16,10 +18,9 @@
     </ul>
   </div>
 
-  <button type="submit" class="btn btn-primary col-xs-12" ng-click="addNew()">
+  <button type="submit" class="btn btn-primary col-xs-12 bottom-margin" ng-click="addNew()">
     <span class="glyphicon glyphicon-plus-sign"></span>{{addButtonTitle}}
   </button>
-  <label for=""></label>
 </div>
 
 <div ng-include src="'views/modal/errorWarning.html'"></div>

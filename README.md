@@ -1,6 +1,8 @@
 # [DailyFinance](http://leoj.net)
 
-DailyFinance is a end to end web application to let people easily save the each single expense they spent any where any time through any devices, all you need is web connection.
+DailyFinance is a end to end web application for people easily to save the each single expense they spent any where any time through any devices, all you need is web connection. 
+
+Entire web app built with Node.js, Express, MongoDB, AngularJS, Bootstrap and RESTful API.
 
 ## Run the app
 
@@ -16,6 +18,14 @@ You need to have those tools installed first before you go to next step.
 * [compass](http://compass-style.org)
 
 ### Configuration
+
+* `port` defined the server port.
+* `client` specify the client code folder name.
+* `server` specify the server code folder name.
+* `mongodbUrl` point to mongoDB database.
+
+Example:
+
 
 ```
 {
@@ -58,7 +68,7 @@ Preserve all user profile and expense data in the mongoDB.
 
 ## RESTful API
 
-All API built in **RESTful**.
+All API built in **RESTful**. Main operations are **CRUD** which is create, read, update and delete. Use `GET` as read and `DELETE` as delete operations as usual, for create I used `POST` and update use `PUT`, which is not necessary to use `POST` as create, `POST` can be used as update as well. The main difference between them are whether it is **idempotent**.
 
 ### APIs
 

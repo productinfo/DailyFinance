@@ -125,6 +125,14 @@ Help running javascript tasks.
 * open
 * compass
 
+## Future feature
+
+* sign up
+* delete all
+* grid view
+* social log in (fb, twitter, g+)
+* multi-currency
+
 ## Release History
 
 v0.0.1 Initial release

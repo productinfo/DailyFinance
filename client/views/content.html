@@ -22,13 +22,15 @@
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
-          <input type="date" class="form-control" ng-model="expense.date" placeholder="Date (optional)">
+          <input type="text" class="form-control" ng-model="expense.date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Date (optional)">
+          <!-- <input type="date" class="form-control" ng-model="expense.date" placeholder="Date (optional)"> -->
         </p>
         <p class="input-group">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-dashboard"></span>
           </span>
-          <input type="time" class="form-control" ng-model="expense.time" placeholder="Time (optional)">
+          <!-- <input type="text" class="form-control" ng-model="expense.time" bs-timepicker> -->
+          <input type="time" class="form-control" ng-model="expense.time" placeholder="Time (optional: 09:29 PM)">
         </p>
         <p>
           <button type="submit" class="btn btn-danger col-xs-12" ng-if="contentConfig.isDeleteButtonShow" ng-click="showWarningModal()">

@@ -2,7 +2,8 @@
 
 angular.module('DailyFinanceApp', [
   'ngRoute',
-  'ngResource'
+  'ngResource',
+  '$strap.directives'
 ])
   .service('$flash', function ($rootScope) {
     this.show = function (message) {

@@ -42,4 +42,9 @@ app.get('/user', Authentication.ensureAuthenticated, function (req, res) {
 
 require('./api')(app);
 
+console.log('*--------------------------------------------------*');
+console.log('* Express server listening on port: ', config.port);
+console.log('* connected to database: ', config.mongodbUrl);
+console.log('*--------------------------------------------------*');
+
 module.exports = app;

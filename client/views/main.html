@@ -10,7 +10,9 @@
       <li class="list-group-item" ng-repeat="item in data">
         <a class="list-group-item" href="#/detail/{{item.expenseId}}?userId={{item.uesrId}}">
           <div class="">
-            <strong>{{item.name}}</strong><small>{{item.date | date:'shortDate'}}</small><h6>{{item.time | date:'shortTime'}}</h6>
+            <strong>{{item.name}}</strong>
+            <small>{{item.date | date:'shortDate'}}</small>
+            <h6>{{item.time | date:'shortTime'}}</h6>
             <span class="label label-success pull-right">{{item.price}}</span>
           </div>
 

@@ -19,8 +19,12 @@
           <input type="password" class="form-control" ng-model="credentials.password" placeholder="Password" required>
         </p>
         <button type="submit" class="btn btn-primary col-xs-12">Sign in</button>
+        <hr>
+        <div class="col-xs-12 login-footer">
+          <a class="col-xs-6 text-center" href="">Forgot Your Password?</a>
+          <a class="col-xs-6 text-center" href="#/signUp">Create An Account</a>
+        </div>
       </fieldset>
-      <label for=""></label>
       <div id="flash" class="col-xs-12 alert alert-warning" ng-show="flash">{{ flash }}</div>
     </form>
   </div>

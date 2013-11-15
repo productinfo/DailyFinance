@@ -1,9 +1,13 @@
 'use strict';
 
 var expense = require('./expense'),
+  signUp = require('./signUp'),
   Authentication = require('./authentication');
 
 module.exports = function (app) {
+
+  // sign up
+  app.post('/api/signup', signUp.create);
 
   // GET List
   app.get('/api/expense', Authentication.ensureAuthenticated, expense.getList);

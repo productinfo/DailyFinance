@@ -107,7 +107,7 @@ List all used open source library for building entire back-end.
 
 * [express](http://expressjs.com) for building entire server.
 * [passport](http://passportjs.org) for authentication.
-* [mongoose](http://mongoosejs.com) for modeling data, querying and connecting with mongoDB.
+* [mongoose](http://mongoosejs.com) for modeling data, querying and connecting to mongoDB.
 
 ## Client
 
@@ -127,7 +127,7 @@ Help running javascript tasks.
 
 ## Future feature
 
-* sign up
+* <del>sign up<del>
 * delete all
 * grid view
 * social log in (fb, twitter, g+)

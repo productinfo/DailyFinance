@@ -105,7 +105,7 @@ angular.module('DailyFinanceApp', [
       // login
       var publicRoutes = ['/login'];
       $rootScope.$on('$routeChangeStart', function () {
-        if (publicRoutes.indexOf($location.path()) === -1) {
+        if (publicRoutes.indexOf($location.path()) === -1 && $location.path() !== '/signUp') {
           AuthenticationService.user();
         }
       });
@@ -117,6 +117,11 @@ angular.module('DailyFinanceApp', [
         title: 'Main',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/signUp', {
+        title: 'SignUp',
+        templateUrl: 'views/signUp.html',
+        controller: 'SignUpCtrl'
       })
       .when('/login', {
         title: 'Login',

@@ -14,25 +14,32 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('connected!');
 // });
 
-var Leo = new UserModel({
-  uesrId: uuid.v4(),
-  email: 'leo@facebook.com',
-  password: 'leo'
-});
+// var Leo = new UserModel({
+//   uesrId: uuid.v4(),
+//   email: 'leo@facebook.com',
+//   password: 'leo'
+// });
 
-Leo.save(function (err) {
-  if (err) {
-    console.log(err);
-  }
-  console.log('s');
-});
-
-// UserModel.find(function (err, user) {
+// Leo.save(function (err) {
 //   if (err) {
 //     console.log(err);
 //   }
-//   console.log(user);
+//   console.log('s');
 // });
+
+// UserModel.remove({
+//   uesrId: '30028217-13cf-4ef3-b390-feaffefb264e'
+//   // email: 't2@t2.com'
+// }, function (err) {
+
+// });
+
+UserModel.find(function (err, user) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(user);
+});
 
 // Expense
 

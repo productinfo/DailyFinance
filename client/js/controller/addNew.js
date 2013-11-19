@@ -7,8 +7,7 @@ angular.module('DailyFinanceApp')
     $scope.contentConfig = $contentConfig.addNew;
 
     $scope.create = function () {
-      console.log('create');
-      $api.create({
+      $api.create({}, {
         userId: userId,
         payload: this.expense
       }).$promise.then(function () {

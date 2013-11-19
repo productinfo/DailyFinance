@@ -2,6 +2,7 @@
 
 angular.module('DailyFinanceApp')
   .controller('MainCtrl', function ($scope, $session, $location, $api) {
+
     var userId = $session.get('user').uesrId;
 
     $scope.addButtonTitle = '  Add New Expense';
@@ -11,8 +12,6 @@ angular.module('DailyFinanceApp')
     }).$promise.then(function (data) {
       $scope.data = data;
     }, function () {
-      console.log('eee');
-      console.log($('#errorWarning'));
       // error
       $('#errorWarning').modal({
         show: true

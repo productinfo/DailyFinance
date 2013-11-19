@@ -128,6 +128,8 @@ Help running javascript tasks.
 ## Future feature
 
 * <del>sign up<del>
+* verify whether the email has been used or not when creating account
+* account setting
 * delete all
 * grid view
 * social log in (fb, twitter, g+)

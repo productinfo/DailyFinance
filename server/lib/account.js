@@ -5,9 +5,10 @@ var uuid = require('node-uuid'),
 
 module.exports = {
   create: function (req, res) {
-    var name = req.query.name,
-      email = req.query.email,
-      password = req.query.password;
+    var name = req.body.name,
+      email = req.body.email,
+      password = req.body.password;
+
     UserModel.create({
       uesrId: uuid.v4(),
       name: name,

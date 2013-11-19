@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('SignUpCtrl', function ($scope, $location, $signUp) {
+  .controller('SignUpCtrl', function ($scope, $location, $account) {
     $scope.signup = function () {
 
       var profile = this.profile || {};
@@ -36,7 +36,9 @@ angular.module('DailyFinanceApp')
         return;
       }
 
-      $signUp.create({}, {
+      $account.create({
+
+      }, {
         name: profile.name,
         email: profile.email,
         password: profile.password
@@ -49,8 +51,7 @@ angular.module('DailyFinanceApp')
     };
 
     $scope.back = function () {
-      console.log('cancel');
-      $location.path('/');
+      $location.path('/login');
     };
 
     $scope.show = function (message) {

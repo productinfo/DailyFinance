@@ -13,18 +13,12 @@ function app$api($resource) {
       method: 'GET'
     },
     create: {
-      method: 'POST',
-      params: {
-        userId: '@userId',
-        payload: '@payload'
-      }
+      method: 'POST'
     },
     update: {
       method: 'PUT',
       params: {
-        expenseId: '@expenseId',
-        userId: '@userId',
-        payload: '@payload'
+        expenseId: '@expenseId'
       }
     },
     delete: {

@@ -13,7 +13,7 @@ module.exports = {
     }, function (err, data) {
       if (err) {
         console.log(err);
-        res.send(500);
+        res.send(404);
       }
 
       expenseCache = data;
@@ -29,22 +29,25 @@ module.exports = {
     if (data) {
       res.json(data);
     } else {
-      res.send(500);
+      res.send(404);
     }
   },
   update: function(req, res) {
-    var userId = req.query.userId,
-      expenseId = req.params.expenseId,
-      payload = JSON.parse(req.query.payload);
+    var expenseId = req.params.expenseId,
+      userId = req.body.userId,
+      name = req.body.name,
+      price = req.body.price,
+      date = req.body.date,
+      time = req.body.time;
 
     ExpenseModel.update({
       uesrId: userId,
       expenseId: expenseId
     }, {
-      name: payload.name,
-      price: payload.price,
-      date: payload.date,
-      time: payload.time
+      name: name,
+      price: price,
+      date: date,
+      time: time
     }, function (err) {
       if (err) {
         console.log(err);
@@ -69,9 +72,11 @@ module.exports = {
     });
   },
   create: function (req, res) {
-    var userId = req.query.userId,
+    var userId = req.body.userId,
       expenseId = uuid.v4(),
-      payload = JSON.parse(req.query.payload);
+      payload = req.body.payload;
+
+    console.log(payload);
     ExpenseModel.create({
       uesrId: userId,
       expenseId: expenseId,

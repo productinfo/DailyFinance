@@ -34,7 +34,10 @@ angular.module('DailyFinanceApp')
         expenseId: expenseId
       }, {
         userId: userId,
-        payload: $scope.expense
+        name: $scope.expense.name,
+        price: $scope.expense.price,
+        date: $scope.expense.date,
+        time: $scope.expense.time
       }).$promise.then(function () {
         $location.search('userId', null).path('/');
         // $location.path('/');

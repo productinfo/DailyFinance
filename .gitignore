@@ -4,3 +4,4 @@ node_modules
 client/bower_components
 .DS_Store
 .DS_Store?
+server/email/setting.js

@@ -1,7 +1,7 @@
 'use strict';
 
-var uuid = require('node-uuid'),
-  UserModel = require('../mongodb/model/user').UserModel;
+var UserModel = require('../mongodb/model/user').UserModel,
+  emailManager = require('../email/email');
 
 module.exports = {
   lostPassword: function(req, res) {
@@ -13,7 +13,7 @@ module.exports = {
       if (err) {
         res.send(404);
       }
-      console.log(data[0].password);
+      emailManager.sendOutEmail(data[0]);
       res.send(200);
     });
   }

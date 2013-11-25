@@ -5,22 +5,16 @@
   <div ng-if="data.length === 0">
     <div ng-include src="'views/empty.html'"></div>
   </div>
-  <div ng-if="data.length !== 0">
-    <ul class="list-group-lg">
-      <li class="list-group-item" ng-repeat="item in data">
-        <a class="list-group-item" href="#/detail/{{item.expenseId}}?userId={{item.uesrId}}">
-          <div class="">
-            <strong>{{item.name}}</strong>
-            <small>{{item.date | date:'shortDate'}}</small>
-            <h6>{{item.time | date:'shortTime'}}</h6>
-            <span class="label label-success pull-right">{{item.price}}</span>
-          </div>
-
-          <!-- <span>{{item.date | date:'medium'}}</span> -->
-          <!-- <span>{{item.time}}</span> -->
-        </a>
-      </li>
-    </ul>
+  <div ng-if="data.length !== 0" class="list-group">
+    <a class="list-group-item" href="#/detail/{{item.expenseId}}?userId={{item.uesrId}}" ng-repeat="item in data">
+      <h4>
+        <span class="label label-danger pull-right">{{item.price | currency:'$'}}</span>
+        <span>
+          <strong>{{item.name}}</strong>
+          <small>{{item.date | date:'shortDate'}}&nbsp{{item.time | date:'shortTime'}}</small>
+        </span>
+      </h4>
+    </a>
   </div>
 
   <button type="submit" class="btn btn-primary col-xs-12 bottom-margin" ng-click="addNew()">

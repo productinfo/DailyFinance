@@ -136,7 +136,7 @@ Help running javascript tasks.
 * <del>sign up<del>
 * verify whether the email has been used or not when creating account
 * account setting
-* amount
+* total amount
 * deposit VS purchase
 * delete all
 * grid view

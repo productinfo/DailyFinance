@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('DailyFinanceApp', [
+  // '$strap.directives'
   'ngRoute',
   'ngResource'
-  // '$strap.directives'
 ])
   .service('$flash', function ($rootScope) {
     this.show = function (message) {

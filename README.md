@@ -95,7 +95,15 @@ Content is `application/json`.
   </tr>
   <tr>
       <td>DELETE /api/expense/:expenseId</td>
-      <td>delete the expense</td>
+      <td>Delete the expense</td>
+  </tr>
+  <tr>
+      <td>POST /api/account</td>
+      <td>Create new account</td>
+  </tr>
+  <tr>
+      <td>POST /api/password</td>
+      <td>Retrieve password</td>
   </tr>
 </table>
 
@@ -128,6 +136,8 @@ Help running javascript tasks.
 * <del>sign up<del>
 * verify whether the email has been used or not when creating account
 * account setting
+* amount
+* deposit VS purchase
 * delete all
 * grid view
 * social log in (fb, twitter, g+)

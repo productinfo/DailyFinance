@@ -34,10 +34,17 @@ exports = module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          server: path.resolve(config.server + '/lib'),
-          bases: [path.resolve('./.tmp'), path.resolve(config.client)],
+          server: path.resolve(config.server),
+          bases: [path.resolve(config.target), path.resolve(config.client)],
           livereload: true,
           serverreload: true
+        }
+      },
+      test: {
+        options: {
+          // port: 9001,
+          server: path.resolve(__dirname, config.server),
+          bases: [path.resolve(__dirname, config.target), path.resolve(__dirname, 'test')]
         }
       }
     },
@@ -65,6 +72,9 @@ exports = module.exports = function (grunt) {
     concurrent: {
       server: [
         'compass:server'
+      ],
+      test: [
+        'compass'
       ]
     },
     jshint: {
@@ -99,6 +109,12 @@ exports = module.exports = function (grunt) {
       }
     }
   });
+
+  grunt.registerTask('test', [
+    'concurrent:test',
+    'express:test',
+    'karma:unit'
+  ]);
 
   grunt.registerTask('server', [
     'clean:server',

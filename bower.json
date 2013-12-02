@@ -3,10 +3,13 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "~1.2.0-rc.2",
+    "angular-mocks": "1.2.0-rc.2",
     "angular-route": "~1.2.0-rc.2",
     "angular-resource": "~1.2.0-rc.2",
     "sass-bootstrap": "~3.0.0",
     "angular-strap": "latest",
-    "sugar": "~1.4.1"
+    "sugar": "~1.4.1",
+    "chai": "~1.8.1",
+    "bowser": "*"
   }
 }

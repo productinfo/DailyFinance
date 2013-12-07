@@ -76,7 +76,6 @@ module.exports = {
       expenseId = uuid.v4(),
       payload = req.body.payload;
 
-    console.log(payload);
     ExpenseModel.create({
       uesrId: userId,
       expenseId: expenseId,

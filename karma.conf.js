@@ -19,6 +19,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'client/bower_components/jquery/jquery.js',
       'client/bower_components/sugar/release/sugar-full.development.js',
       'client/bower_components/angular/angular.js',
       'client/bower_components/angular-route/angular-route.js',

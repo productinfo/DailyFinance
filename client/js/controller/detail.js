@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('DetailCtrl', function ($scope, $routeParams, $session, $api, $contentConfig, $location) {
-
+  .controller('DetailCtrl', function ($scope, $routeParams, $session, $api, $contentConfig, $location, $modal) {
+    console.log($modal);
     var userId = $session.get('user').uesrId;
     var expenseId = $routeParams.id;
 
@@ -29,7 +29,7 @@ angular.module('DailyFinanceApp')
       });
     };
 
-    $scope.update = function () {
+    $scope.submit = function () {
       $api.update({
         expenseId: expenseId
       }, {
@@ -47,12 +47,16 @@ angular.module('DailyFinanceApp')
       });
     };
 
-    $api.get({
-      expenseId: expenseId
-    }).$promise.then(function (data) {
-      $scope.expense = data;
-    }, function () {
-      // error
-      $('#errorWarning').modal();
-    });
+    $scope.getData = function () {
+      $api.get({
+        expenseId: expenseId
+      }).$promise.then(function (data) {
+        $scope.expense = data;
+      }, function () {
+        // error
+        $('#errorWarning').modal();
+      });
+    };
+
+    $scope.getData();
   });

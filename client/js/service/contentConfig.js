@@ -6,8 +6,7 @@ function app$contentConfig() {
       legend: 'Create New Expense',
       subTitle: 'Please input details',
       submitButtonTitle: '  Create',
-      isDeleteButtonShow: false,
-      buttonFunction: 'create()'
+      isDeleteButtonShow: false
     },
     detail: {
       legend: 'Detail of you expense',
@@ -15,7 +14,6 @@ function app$contentConfig() {
       submitButtonTitle: '  Update',
       deleteButtonTitle: '  Delete',
       isDeleteButtonShow: true,
-      buttonFunction: 'update()'
     }
   };
 }

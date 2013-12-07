@@ -34,12 +34,12 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 
 // });
 
-UserModel.find(function (err, user) {
-  if (err) {
-    console.log(err);
-  }
-  console.log(user);
-});
+// UserModel.find(function (err, user) {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(user);
+// });
 
 // Expense
 
@@ -68,9 +68,11 @@ UserModel.find(function (err, user) {
 //   console.log('remove');
 // });
 
-// ExpenseModel.find(function (err, expense) {
-//   if (err) {
-//     console.log(err);
-//   }
-//   console.log(expense);
-// });
+ExpenseModel.find({
+  uesrId: 'e60c2b49-ae2e-4e53-b9dc-0eced9042b61'
+}, function (err, expense) {
+  if (err) {
+    console.log(err);
+  }
+  console.log(expense);
+});

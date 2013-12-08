@@ -22,6 +22,7 @@ module.exports = function(config) {
       'client/bower_components/jquery/jquery.js',
       'client/bower_components/sugar/release/sugar-full.development.js',
       'client/bower_components/angular/angular.js',
+      'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'client/bower_components/angular-route/angular-route.js',
       'client/bower_components/angular-resource/angular-resource.js',
       'client/bower_components/angular-mocks/angular-mocks.js',

@@ -1,31 +1,25 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('DetailCtrl', function ($scope, $routeParams, $session, $api, $contentConfig, $location, $modal) {
-    console.log($modal);
+  .controller('DetailCtrl', function ($scope, $routeParams, $session, $api, $contentConfig, $location, $modalFactory) {
+
     var userId = $session.get('user').uesrId;
     var expenseId = $routeParams.id;
 
     $scope.contentConfig = $contentConfig.detail;
 
-    $scope.showWarningModal = function () {
-      $('#deleteWarning').modal();
-    };
-
     $scope.delete = function () {
-      $('#deleteWarning').modal('hide');
-      $api.delete({
-        expenseId: expenseId
-      }, {
-        userId: userId,
-      }).$promise.then(function () {
-        $('#deleteWarning').on('hidden.bs.modal', function () {
-          $location.search('userId', null).path('/');
-          $scope.$apply();
+      $modalFactory.deleteModal(function () {
+        $api.delete({
+          expenseId: expenseId
+        }, {
+          userId: userId,
+        }).$promise.then(function () {
+          $location.path('/');
+        }, function () {
+          // error
+          $modalFactory.error();
         });
-      }, function () {
-        // error
-        $('#errorWarning').modal();
       });
     };
 
@@ -40,10 +34,9 @@ angular.module('DailyFinanceApp')
         time: $scope.expense.time
       }).$promise.then(function () {
         $location.search('userId', null).path('/');
-        // $location.path('/');
       }, function () {
         // error
-        $('#errorWarning').modal();
+        $modalFactory.error();
       });
     };
 
@@ -54,7 +47,7 @@ angular.module('DailyFinanceApp')
         $scope.expense = data;
       }, function () {
         // error
-        $('#errorWarning').modal();
+        $modalFactory.error();
       });
     };
 

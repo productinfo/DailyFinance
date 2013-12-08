@@ -14,7 +14,6 @@ angular.module('DailyFinanceApp')
         $location.path('/');
       }, function () {
         // error
-        // $('#errorWarning').modal();
         $modalFactory.error();
       });
     };

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('SignUpCtrl', function ($scope, $location, $account) {
+  .controller('SignUpCtrl', function ($scope, $location, $account, $modalFactory) {
     $scope.signup = function () {
 
       var profile = this.profile || {};
@@ -46,7 +46,7 @@ angular.module('DailyFinanceApp')
         $location.path('/login');
       }, function () {
         // error
-        $('#errorWarning').modal();
+        $modalFactory.error();
       });
     };
 

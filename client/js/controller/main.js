@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('MainCtrl', function ($scope, $session, $location, $api) {
+  .controller('MainCtrl', function ($scope, $session, $location, $api, $modalFactory) {
 
     var userId = $session.get('user').uesrId;
 
@@ -13,9 +13,7 @@ angular.module('DailyFinanceApp')
       $scope.data = data;
     }, function () {
       // error
-      $('#errorWarning').modal({
-        show: true
-      });
+      $modalFactory.error();
     });
 
     $scope.addNew = function () {

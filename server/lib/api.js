@@ -11,7 +11,7 @@ module.exports = function (app) {
   app.post('/api/account', account.create);
 
   // lost password
-  app.post('/api/password', password.lostPassword);
+  app.post('/api/password', password.retrievePassword);
 
   // GET List
   app.get('/api/expense', Authentication.ensureAuthenticated, expense.getList);

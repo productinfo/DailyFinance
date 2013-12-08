@@ -2,7 +2,7 @@
 
 function app$password($resource) {
   return $resource('/api/password', {}, {
-    lostPassword: {
+    retrievePassword: {
       method: 'POST'
     }
   });

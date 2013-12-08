@@ -14,7 +14,7 @@ module.exports = {
     server.send({
       from         : setting.sender,
       to           : account.email,
-      subject      : '[DailyFinance Web App] Password Reset',
+      subject      : '[DailyFinance Web App] Retrieve Password',
       attachment   : this.composeEmail(account)
     }, callback);
   },

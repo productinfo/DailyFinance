@@ -1,17 +1,24 @@
 'use strict';
 
-describe('Controller: addNew', function () {
+describe('Controller: AddNewCtrl', function () {
 
-  var scope, mockBackend, controller,
+  var scope, mockBackend, controller, modalFactory,
   location = {
     path: function() {}
   };
 
   beforeEach(module('DailyFinanceApp'));
 
-  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $compile) {
+  beforeEach(function () {
+    module('ngResource', function ($provide) {
+      $provide.factory('$modalFactory', app$$modalFactory);
+    });
+  });
+
+  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $compile, $modalFactory) {
     mockBackend = $httpBackend;
     controller = $controller;
+    modalFactory = $modalFactory;
     scope = $rootScope.$new();
     controller('AddNewCtrl', {
       $scope: scope,
@@ -45,5 +52,14 @@ describe('Controller: addNew', function () {
     mockBackend.expectPOST('/api/expense').respond(200);
     mockBackend.flush();
     expect(location.path).toHaveBeenCalled();
+  });
+
+  it('error case on sending the POST req', function () {
+    spyOn(modalFactory, 'error');
+    scope.expense = 100;
+    scope.submit();
+    mockBackend.expectPOST('/api/expense').respond(400);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
   });
 });

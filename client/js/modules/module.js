@@ -25,7 +25,7 @@ angular.module('uiModule', [
         };
       };
 
-      $modal.retrievePasswordBox = function (title, message, inputPlaceholder, error) {
+      $modal.retrievePasswordBox = function (title, message, inputPlaceholder) {
         var messageBoxOpts = {
           templateUrl: 'views/modal/retrievePassword.html',
           controller: 'retrievePasswordBoxCtrl',
@@ -34,8 +34,7 @@ angular.module('uiModule', [
               return {
                 title: title,
                 message: message,
-                placeholder: inputPlaceholder,
-                error: error
+                placeholder: inputPlaceholder
               };
             }
           }

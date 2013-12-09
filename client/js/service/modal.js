@@ -11,7 +11,7 @@ function app$$modalFactory($modal) {
         .open();
     },
     retrievePasswordModal: function (callback) {
-      $modal.retrievePasswordBox('Retrieve Password', 'Please enter the email address associated with your account', 'Your Email', 'error')
+      $modal.retrievePasswordBox('Retrieve Password', 'Please enter the email address associated with your account', 'Your Email')
         .open()
         .result
         .then(function (result) {

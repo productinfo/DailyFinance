@@ -2,8 +2,12 @@
 
 describe('Controller: DetailCtrl', function () {
 
-  var scope, mockBackend, controller, location = {
-    path: function() {}
+  var scope, mockBackend, controller, modalFactory, location = {
+    search: function() {
+      return {
+        path: function() {}
+      }
+    }
   },
   mockExpense = {
     'uesrId': '1234-ABCD-5678-WXYZ',
@@ -16,14 +20,21 @@ describe('Controller: DetailCtrl', function () {
 
   beforeEach(module('DailyFinanceApp'));
 
-  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $routeParams) {
+  beforeEach(function () {
+    module('ngResource', function ($provide) {
+      $provide.factory('$modalFactory', app$$modalFactory);
+    });
+  });
+
+  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $routeParams, $modalFactory) {
     $routeParams.id = 'ABCDEFGHIJK';
     mockBackend = $httpBackend;
     controller = $controller;
+    modalFactory = $modalFactory;
     scope = $rootScope.$new();
     controller('DetailCtrl', {
       $scope: scope,
-      $location: location,
+      // $location: location,
       $session: {
         get: function() {
           return {
@@ -55,16 +66,32 @@ describe('Controller: DetailCtrl', function () {
     expect(scope.expense.uesrId).toBe('1234-ABCD-5678-WXYZ');
   });
 
-  // iit('delete should send DELETE req', function () {
-  //   mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(mockExpense);
-  //   mockBackend.flush();
-  //   scope.delete();
-  //   mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(200);
-  // });
+  it('error case for getData', function () {
+    spyOn(modalFactory, 'error');
+    mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(400);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
+  });
 
-  // it('submit should send PUT req', function () {
-  //   mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(mockExpense);
-  //   mockBackend.flush();
-  // });
+  it('delete should pop up modal to ask whether to delete or not', function () {
+    spyOn(modalFactory, 'deleteModal');
+    mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(mockExpense);
+    mockBackend.flush();
+    scope.delete();
+    expect(modalFactory.deleteModal).toHaveBeenCalled();
+  });
 
+  xit('submit should send PUT req', function () {
+    // TODO
+  });
+
+  it('error case for submit', function () {
+    spyOn(modalFactory, 'error');
+    mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(mockExpense);
+    mockBackend.flush();
+    scope.submit();
+    mockBackend.expectPUT().respond(400);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
+  });
 });

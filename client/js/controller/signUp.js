@@ -36,9 +36,7 @@ angular.module('DailyFinanceApp')
         return;
       }
 
-      $account.create({
-
-      }, {
+      $account.create({}, {
         name: profile.name,
         email: profile.email,
         password: profile.password

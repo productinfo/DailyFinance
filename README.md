@@ -34,7 +34,7 @@ Example:
   "port": "1985",
   "client": "client",
   "server": "server",
-  "mongodbUrl": "mongodb://localhost/test"
+  "mongodbUrl": "Your MongoDB URL"
 }
 ```
 

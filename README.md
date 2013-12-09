@@ -38,13 +38,15 @@ Example:
 }
 ```
 
-To run the application **you need to have the mongoDB running on the local or remote machine**, to set up mongoDB please follow instruction on official website, after database start to run, all you need to do is to specify the mongoDB url in the [config file](https://github.com/LeoAJ/DailyFinance/blob/master/config/config.json#L5), otherwise the code will broken and will not be able to run. After all those set up, please do.
+To run the application **you need to have the mongoDB running on the local or remote machine first**, to set up mongoDB please follow instruction on official website, after database start to run, all you need to do is to specify the mongoDB url in the [config file](https://github.com/LeoAJ/DailyFinance/blob/master/config/config.json#L5), otherwise the code will broken and will not be able to run. After all those set up, please do.
 
 ```
 npm install
 bower install
 grunt server
 ```
+Server is up now!!!
+
 
 ### Check the code quality
 
@@ -65,6 +67,10 @@ grunt test
 ## Database (MongoDB)
 
 Preserve all user profile and expense data in the mongoDB.
+
+### DB Schema
+
+TODO!
 
 
 
@@ -111,34 +117,27 @@ Content is `application/json`.
 
 ## Server
 
-List all used open source library for building entire back-end.
+List all used open source libraries for building entire back-end.
 
 * [express](http://expressjs.com) for building entire server.
 * [passport](http://passportjs.org) for authentication.
 * [mongoose](http://mongoosejs.com) for modeling data, querying and connecting to mongoDB.
+* [emailjs](https://github.com/eleith/emailjs) for sending email.
 
 ## Client
 
-List all used open source library for building entire front-end.
+List all used open source libraries for building entire front-end.
 
 * Use [AngularJS](http://angularjs.org) as main javascript framework to build the MVC structure of UI.
 * Use [Bootstrap 3](http://getbootstrap.com) as main css framework to automatically adjust layout in different devices such as mobile, tablet and laptop.
 
-## Grunt libraries
-
-Help running javascript tasks.
-
-* watch
-* express
-* open
-* compass
-
 ## Future feature
 
 * <del>sign up<del>
+* total amount
 * verify whether the email has been used or not when creating account
 * account setting
-* total amount
+* search bar
 * deposit VS purchase
 * delete all
 * grid view

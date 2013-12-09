@@ -39,10 +39,12 @@ describe('Services: modal', function () {
   describe('Retrieve Password Modal', function () {
     var mockBackend, modalFactory;
 
-    beforeEach(module('DailyFinanceApp'));
-
     beforeEach(function () {
       module('ngResource', function ($provide) {
+        var mockModal = $modal({
+          type: 'submit'
+        });
+        $provide.value('$modal', mockModal);
         $provide.factory('$modalFactory', app$$modalFactory);
       });
 
@@ -56,10 +58,40 @@ describe('Services: modal', function () {
       mockBackend.verifyNoOutstandingExpectation();
       mockBackend.verifyNoOutstandingRequest();
     });
+
+    it('click submit should execute callback with email', function () {
+      var callback = jasmine.createSpyObj('callback', ['callback']);
+      modalFactory.retrievePasswordModal(callback.callback);
+      expect(callback.callback).toHaveBeenCalled();
+    });
   });
 
   describe('Delete Modal', function () {
+    var mockBackend, modalFactory;
 
+    beforeEach(function () {
+      module('ngResource', function ($provide) {
+        var mockModal = $modal('delete');
+        $provide.value('$modal', mockModal);
+        $provide.factory('$modalFactory', app$$modalFactory);
+      });
+
+      inject(function ($modalFactory, $httpBackend) {
+        modalFactory = $modalFactory;
+        mockBackend = $httpBackend;
+      });
+    });
+
+    afterEach(function () {
+      mockBackend.verifyNoOutstandingExpectation();
+      mockBackend.verifyNoOutstandingRequest();
+    });
+
+    it('click submit should execute callback with email', function () {
+      var callback = jasmine.createSpyObj('callback', ['callback']);
+      modalFactory.deleteModal(callback.callback);
+      expect(callback.callback).toHaveBeenCalled();
+    });
   });
 
 });

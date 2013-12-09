@@ -1,6 +1,8 @@
 # [DailyFinance](http://leoj.net)
 
-DailyFinance is a end to end web application for people easily to save the each single expense they spent any where any time through any devices, all you need is web connection. 
+DailyFinance is a end to end full-stack web application for people easily to save the each single expense they spent any where any time through any devices, all you need is web connection. 
+
+Provide sign up account, login, retrieve password and basic **CRUD** operations.
 
 Entire web app built with Node.js, Express, MongoDB, AngularJS, Bootstrap and RESTful API.
 

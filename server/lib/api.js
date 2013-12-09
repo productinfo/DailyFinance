@@ -27,4 +27,7 @@ module.exports = function (app) {
 
   // DELETE (delete expense)
   app.delete('/api/expense/:expenseId', Authentication.ensureAuthenticated, expense.delete);
+
+  // DELETE All (delete all expense)
+  app.delete('/api/expense/', Authentication.ensureAuthenticated, expense.batchDelete);
 };

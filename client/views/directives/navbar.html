@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<nav ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
     <div class="nav-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nabvar-controller">
@@ -10,6 +10,9 @@
     </div>
     <div class="collapse navbar-collapse" id="nabvar-controller">
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" ng-click="" class="btn btn-danger navbar-btn">Delete All</button>
+        </li>
         <li>
           <a href ng-click="logout()">
             <strong>Log out</strong>

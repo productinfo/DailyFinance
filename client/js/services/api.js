@@ -21,6 +21,12 @@ function app$api($resource) {
         expenseId: '@expenseId'
       }
     },
+    batchDelete: {
+      method: 'DELETE',
+      params: {
+        userId: '@userId'
+      }
+    },
     delete: {
       method: 'DELETE',
       params: {

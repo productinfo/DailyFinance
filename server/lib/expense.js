@@ -71,6 +71,12 @@ module.exports = {
       res.send(200);
     });
   },
+  batchDelete: function (req, res) {
+    var userId = req.query.userId;
+    console.log(userId);
+    console.log('!!!');
+    res.send(200);
+  },
   create: function (req, res) {
     var userId = req.body.userId,
       expenseId = uuid.v4(),

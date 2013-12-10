@@ -4,6 +4,9 @@ angular.module('DailyFinanceApp')
   .directive('navbar', function () {
     return {
       templateUrl: 'views/directives/navbar.html',
-      restrict: 'E'
+      restrict: 'E',
+      scope: {
+        noData: '='
+      }
     };
   });

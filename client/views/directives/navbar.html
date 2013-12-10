@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="nabvar-controller">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <button type="button" ng-click="" class="btn btn-danger navbar-btn">Delete All</button>
+          <button type="button" ng-click="deleteAll()" ng-disabled="noData || noData === undefined" class="btn btn-danger navbar-btn">Delete All</button>
         </li>
         <li>
           <a href ng-click="logout()">

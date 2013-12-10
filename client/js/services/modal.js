@@ -2,13 +2,21 @@
 
 function app$$modalFactory($modal) {
   return {
-    success: function (title, message) {
+    success: function (title, message, callback) {
       $modal.messageBox(title, message, [{
         label: 'OK',
         cssClass: 'btn-default',
         result: 'ok'
       }])
-        .open();
+        .open()
+        .result
+        .then(function (result) {
+          if (result === 'ok') {
+            if (callback) {
+              callback();
+            }
+          }
+        });
     },
     retrievePasswordModal: function (callback) {
       $modal.retrievePasswordBox('Retrieve Password', 'Please enter the email address associated with your account', 'Your Email')
@@ -18,6 +26,26 @@ function app$$modalFactory($modal) {
           if (result.type === 'submit') {
             if (callback) {
               callback(result.email);
+            }
+          }
+        });
+    },
+    deleteAllModal: function (callback) {
+      $modal.messageBox('Delete all items', 'Are you sure want to delete all expenses?', [{
+        label: 'Close',
+        cssClass: 'btn-default',
+        result: 'ok'
+      }, {
+        label: 'Delete',
+        cssClass: 'btn-danger',
+        result: 'deleteAll'
+      }])
+        .open()
+        .result
+        .then(function (result) {
+          if (result === 'deleteAll') {
+            if (callback) {
+              callback();
             }
           }
         });

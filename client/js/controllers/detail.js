@@ -3,8 +3,8 @@
 angular.module('DailyFinanceApp')
   .controller('DetailCtrl', function ($scope, $routeParams, $session, $api, $contentConfig, $location, $modalFactory) {
 
-    var userId = $session.get('user').uesrId;
-    var expenseId = $routeParams.id;
+    var userId = $session.get('user').uesrId,
+      expenseId = $routeParams.id;
 
     $scope.contentConfig = $contentConfig.detail;
 

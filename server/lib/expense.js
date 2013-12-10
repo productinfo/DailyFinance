@@ -37,8 +37,8 @@ module.exports = {
       userId = req.body.userId,
       name = req.body.name,
       price = req.body.price,
-      date = req.body.date,
-      time = req.body.time;
+      date = req.body.date || '',
+      time = req.body.time || '';
 
     ExpenseModel.update({
       uesrId: userId,
@@ -73,14 +73,20 @@ module.exports = {
   },
   batchDelete: function (req, res) {
     var userId = req.query.userId;
-    console.log(userId);
-    console.log('!!!');
-    res.send(200);
+    ExpenseModel.remove({
+      uesrId: userId
+    }, function (err) {
+      if (err) {
+        console.log(err);
+        res.send(500);
+      }
+      res.send(200);
+    });
   },
   create: function (req, res) {
     var userId = req.body.userId,
-      expenseId = uuid.v4(),
-      payload = req.body.payload;
+      payload = req.body.payload,
+      expenseId = uuid.v4();
 
     ExpenseModel.create({
       uesrId: userId,

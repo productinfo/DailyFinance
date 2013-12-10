@@ -94,4 +94,32 @@ describe('Services: modal', function () {
     });
   });
 
+  describe('Delete All Modal', function () {
+    var mockBackend, modalFactory;
+
+    beforeEach(function () {
+      module('ngResource', function ($provide) {
+        var mockModal = $modal('deleteAll');
+        $provide.value('$modal', mockModal);
+        $provide.factory('$modalFactory', app$$modalFactory);
+      });
+
+      inject(function ($modalFactory, $httpBackend) {
+        modalFactory = $modalFactory;
+        mockBackend = $httpBackend;
+      });
+    });
+
+    afterEach(function () {
+      mockBackend.verifyNoOutstandingExpectation();
+      mockBackend.verifyNoOutstandingRequest();
+    });
+
+    it('click submit should execute callback with email', function () {
+      var callback = jasmine.createSpyObj('callback', ['callback']);
+      modalFactory.deleteAllModal(callback.callback);
+      expect(callback.callback).toHaveBeenCalled();
+    });
+  });
+
 });

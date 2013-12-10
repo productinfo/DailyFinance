@@ -22,10 +22,7 @@ function app$api($resource) {
       }
     },
     batchDelete: {
-      method: 'DELETE',
-      params: {
-        userId: '@userId'
-      }
+      method: 'DELETE'
     },
     delete: {
       method: 'DELETE',

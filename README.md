@@ -102,16 +102,20 @@ Content is `application/json`.
       <td>Update the expense</td>
   </tr>
   <tr>
-      <td>DELETE /api/expense/:expenseId</td>
-      <td>Delete the expense</td>
-  </tr>
-  <tr>
       <td>POST /api/account</td>
       <td>Create new account</td>
   </tr>
   <tr>
       <td>POST /api/password</td>
       <td>Retrieve password</td>
+  </tr>
+  <tr>
+      <td>DELETE /api/expense/:expenseId</td>
+      <td>Delete the expense</td>
+  </tr>
+  <tr>
+      <td>DELETE /api/expense</td>
+      <td>Delete all expenses</td>
   </tr>
 </table>
 
@@ -134,12 +138,12 @@ List all used open source libraries for building entire front-end.
 ## Future feature
 
 * <del>sign up<del>
+* <del>delete all</del>
 * total amount
 * verify whether the email has been used or not when creating account
 * account setting
 * search bar
 * deposit VS purchase
-* delete all
 * grid view
 * social log in (fb, twitter, g+)
 * multi-currency

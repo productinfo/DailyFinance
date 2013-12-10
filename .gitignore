@@ -1,8 +1,43 @@
+# Created by http://gitignore.io
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+### SublimeText ###
+# SublimeText project files
+*.sublime-workspace
+
+### Node ###
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
 node_modules
+
+### DailyFinanceApp ###
 .tmp
 .sass-cache
 client/bower_components
-.DS_Store
-.DS_Store?
 server/email/setting.js
 coverage

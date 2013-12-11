@@ -13,7 +13,7 @@ describe('Controller: DetailCtrl', function () {
     'uesrId': '1234-ABCD-5678-WXYZ',
     'expenseId': 'WXYZ-1234-ABCD-5678',
     'name': 'Leo',
-    'price': '999',
+    'price': 999,
     'date': '12/31/2013',
     'time': '01:23 PM'
   };

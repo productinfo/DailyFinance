@@ -139,7 +139,7 @@ List all used open source libraries for building entire front-end.
 
 * <del>sign up<del>
 * <del>delete all</del>
-* total amount
+* <del>total amount</del>
 * verify whether the email has been used or not when creating account
 * account setting
 * search bar

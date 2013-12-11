@@ -7,10 +7,15 @@ angular.module('DailyFinanceApp')
 
     $scope.addButtonTitle = '  Add New Expense';
 
+    $scope.total = 0;
+
     $api.query({
       userId: userId
     }).$promise.then(function (data) {
       $scope.data = data;
+      data.forEach(function (val) {
+        $scope.total += val.price;
+      });
     }, function () {
       // error
       $modalFactory.error();

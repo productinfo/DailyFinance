@@ -5,9 +5,23 @@ describe('Controller: MainCtrl', function () {
     'uesrId': '1234-ABCD-5678-WXYZ',
     'expenseId': 'WXYZ-1234-ABCD-5678',
     'name': 'Leo',
-    'price': '999',
+    'price': 999,
     'date': '12/31/2013',
     'time': '01:23 PM'
+  }], mockTotal = [{
+    'uesrId': '1234-ABCD-5678-WXYZ',
+    'expenseId': 'WXYZ-1234-ABCD-5678',
+    'name': 'Leo',
+    'price': 999,
+    'date': '12/31/2013',
+    'time': '01:23 PM'
+  }, {
+    'uesrId': '1234',
+    'expenseId': 'WXYZ',
+    'name': 'leoj',
+    'price': 1,
+    'date': '2/13/2013',
+    'time': '11:43 PM'
   }], location = {
     path: function () {}
   };
@@ -68,5 +82,11 @@ describe('Controller: MainCtrl', function () {
     mockBackend.flush();
     scope.addNew();
     expect(location.path).toHaveBeenCalled();
+  });
+
+  it('total should sum up ', function () {
+    mockBackend.expectGET('/api/expense?userId=123456789').respond(mockTotal);
+    mockBackend.flush();
+    expect(scope.total).toBe(1000);
   });
 });

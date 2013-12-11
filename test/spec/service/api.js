@@ -5,21 +5,21 @@ describe('Services: api', function () {
     'uesrId': '1234-ABCD-5678-WXYZ',
     'expenseId': 'WXYZ-1234-ABCD-5678',
     'name': 'Leo',
-    'price': '999',
+    'price': 999,
     'date': '12/31/2013',
     'time': '01:23 PM'
   }, mockExpenseList = [{
     'uesrId': '1234-ABCD-5678-WXYZ',
     'expenseId': 'WXYZ-1234-ABCD-5678',
     'name': 'Leo',
-    'price': '999',
+    'price': 999,
     'date': '12/31/2013',
     'time': '01:23 PM'
   }, {
     'uesrId': '1234-WXYZ-ABCD-5678',
     'expenseId': 'ABCD-5678-WXYZ-1234',
-    'name': 'Andy',
-    'price': '123',
+    'name': 'leoj',
+    'price': 123,
     'date': '11/30/2013',
     'time': '02:44 PM'
   }];

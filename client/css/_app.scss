@@ -11,6 +11,42 @@ body {
   background: #d6f0fd;
 }
 
+// // override glyphicon
+// // -------------------------
+
+@charset "UTF-8";
+
+.glyphicon-bell:before {
+  content: "🔔";
+}
+.glyphicon-bookmark:before {
+  content: "🔖";
+}
+.glyphicon-briefcase:before {
+  content: "💼";
+}
+.glyphicon-calendar:before {
+  content: "📅";
+}
+.glyphicon-camera:before {
+  content: "📷";
+}
+.glyphicon-fire:before {
+  content: "🔥";
+}
+.glyphicon-lock:before {
+  content: "🔒";
+}
+.glyphicon-paperclip:before {
+  content: "📎";
+}
+.glyphicon-pushpin:before {
+  content: "📌";
+}
+.glyphicon-wrench:before {
+  content: "🔧";
+}
+
 .h4 {
   font-size: 18px;
 }
@@ -34,6 +70,10 @@ body {
   margin-top: 5px;
 }
 
+.left-margin {
+  margin-left: 15px;
+}
+
 .bottom-margin {
   margin-bottom: 20px;
 }
@@ -43,7 +83,6 @@ body {
 }
 
 .login-footer {
-  // margin: 10px auto;
   margin-top: 5px;
   margin-bottom: 10px;
 }

@@ -29,6 +29,7 @@ module.exports = function(config) {
       'client/js/*.js',
       'client/js/**/*.js',
       'client/views/**/*.html',
+      'test/mock/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],

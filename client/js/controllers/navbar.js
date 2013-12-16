@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('NavbarCtrl', function ($scope, $session, $route, $api, $modalFactory) {
-
+  .controller('NavbarCtrl', function ($scope, $session, $location, $route, $api, $modalFactory, AuthenticationService) {
     var userId = $session.get('user').uesrId;
+
+    $scope.logout = function () {
+      AuthenticationService.logout().success(function () {
+        $location.path('/login');
+      });
+    };
 
     $scope.deleteAll = function () {
       $modalFactory.deleteAllModal(function () {

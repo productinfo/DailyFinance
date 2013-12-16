@@ -3,6 +3,9 @@
 describe('Controller: NavbarCtrl', function () {
 
   var scope, mockBackend, controller, modalFactory,
+  location = {
+    path: function () {}
+  },
   route = {
     reload: function() {}
   };
@@ -23,6 +26,7 @@ describe('Controller: NavbarCtrl', function () {
     controller('NavbarCtrl', {
       $scope: scope,
       $route: route,
+      $location: location,
       $session: {
         get: function() {
           return {
@@ -36,6 +40,14 @@ describe('Controller: NavbarCtrl', function () {
   afterEach(function () {
     mockBackend.verifyNoOutstandingExpectation();
     mockBackend.verifyNoOutstandingRequest();
+  });
+
+  it('logout should call logout fn', function (done) {
+    spyOn(location, 'path');
+    scope.logout();
+    mockBackend.expectGET('/logout').respond(200);
+    mockBackend.flush();
+    expect(location.path).toHaveBeenCalled();
   });
 
   it('deleteAll should popup modal', function () {

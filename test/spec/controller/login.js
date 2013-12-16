@@ -1,12 +1,8 @@
 'use strict';
 
 describe('Controller: LoginCtrl', function () {
-  var scope, mockBackend, controller, modalFactory, $AuthenticationService = {
-    login: function () {
-      return {
-        success: function () {}
-      }
-    }
+  var scope, mockBackend, controller, modalFactory, location = {
+    path: function () {}
   };
 
   beforeEach(module('DailyFinanceApp'));
@@ -14,17 +10,17 @@ describe('Controller: LoginCtrl', function () {
   beforeEach(function () {
     module('ngResource', function ($provide) {
       $provide.factory('$modalFactory', app$$modalFactory);
-      $provide.value('AuthenticationService', $AuthenticationService);
     });
   });
 
-  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $routeParams, $modalFactory, AuthenticationService) {
+  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $routeParams, $modalFactory) {
     mockBackend = $httpBackend;
     controller = $controller;
     modalFactory = $modalFactory;
     scope = $rootScope.$new();
     controller('LoginCtrl', {
-      $scope: scope
+      $scope: scope,
+      $location: location
     });
   }));
 
@@ -33,8 +29,12 @@ describe('Controller: LoginCtrl', function () {
     mockBackend.verifyNoOutstandingRequest();
   });
 
-  xit('login should complete authenticate', function () {
-    // TODO
+  it('login should complete authenticate', function () {
+    spyOn(location, 'path');
+    scope.login();
+    mockBackend.expectPOST('/login').respond(200);
+    mockBackend.flush();
+    expect(location.path).toHaveBeenCalled();
   });
 
   it('retrievePassword should popup modal ', function () {

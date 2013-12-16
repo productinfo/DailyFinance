@@ -4,9 +4,6 @@ function app$api($resource) {
   return $resource('/api/expense/:expenseId', {}, {
     query: {
       method: 'GET',
-      params: {
-        userId: '@userId'
-      },
       isArray: true
     },
     get: {

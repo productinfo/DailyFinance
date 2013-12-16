@@ -41,7 +41,7 @@ describe('Controller: SignUpCtrl', function () {
   });
 
   it('successful getting account', function () {
-    spyOn(location, 'path');
+    spyOn(modalFactory, 'success');
     scope.profile = {
       name: 'Leo',
       email: 'leo@email.com',
@@ -51,7 +51,7 @@ describe('Controller: SignUpCtrl', function () {
     scope.signup();
     mockBackend.expectPOST('/api/account').respond(200);
     mockBackend.flush();
-    expect(location.path).toHaveBeenCalled();
+    expect(modalFactory.success).toHaveBeenCalled();
   });
 
   it('error case to get account', function () {

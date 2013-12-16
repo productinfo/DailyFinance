@@ -2,7 +2,7 @@
 
 angular.module('DailyFinanceApp')
   .controller('NavbarCtrl', function ($scope, $session, $location, $route, $api, $modalFactory, AuthenticationService) {
-    var userId = $session.get('user').uesrId;
+    var userId = $session.get('user').userId;
 
     $scope.logout = function () {
       AuthenticationService.logout().success(function () {

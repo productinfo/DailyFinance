@@ -45,7 +45,7 @@ describe('Controller: MainCtrl', function () {
       $session: {
         get: function() {
           return {
-            uesrId: '123456789'
+            userId: '123456789'
           }
         }
       }

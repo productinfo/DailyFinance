@@ -2,7 +2,7 @@
 
 angular.module('DailyFinanceApp')
   .controller('AddNewCtrl', function ($scope, $session, $api, $contentConfig, $location, $modalFactory) {
-    var userId = $session.get('user').uesrId;
+    var userId = $session.get('user').userId;
 
     $scope.contentConfig = $contentConfig.addNew;
 

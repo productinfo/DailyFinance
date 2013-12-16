@@ -9,13 +9,13 @@ module.exports = {
   getList: function (req, res) {
     var userId = req.query.userId;
     ExpenseModel.find({
-      uesrId: userId
+      userId: userId
     }, function (err, data) {
       if (err) {
         console.log(err);
         res.send(404);
       }
-
+      console.log(data);
       expenseCache = data;
       res.json(data);
     });
@@ -41,7 +41,7 @@ module.exports = {
       time = req.body.time || '';
 
     ExpenseModel.update({
-      uesrId: userId,
+      userId: userId,
       expenseId: expenseId
     }, {
       name: name,
@@ -61,7 +61,7 @@ module.exports = {
       expenseId = req.params.expenseId;
 
     ExpenseModel.remove({
-      uesrId: userId,
+      userId: userId,
       expenseId: expenseId
     }, function (err) {
       if (err) {
@@ -74,7 +74,7 @@ module.exports = {
   batchDelete: function (req, res) {
     var userId = req.query.userId;
     ExpenseModel.remove({
-      uesrId: userId
+      userId: userId
     }, function (err) {
       if (err) {
         console.log(err);
@@ -89,7 +89,7 @@ module.exports = {
       expenseId = uuid.v4();
 
     ExpenseModel.create({
-      uesrId: userId,
+      userId: userId,
       expenseId: expenseId,
       name: payload.name,
       price: payload.price,

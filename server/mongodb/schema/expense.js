@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 var ExpenseSchema = mongoose.Schema({
-  uesrId: String,
+  userId: String,
   expenseId: String,
   name: String,
   price: Number,

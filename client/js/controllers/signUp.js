@@ -41,7 +41,9 @@ angular.module('DailyFinanceApp')
         email: profile.email,
         password: profile.password
       }).$promise.then(function () {
-        $location.path('/login');
+        $modalFactory.success('Account created!', 'Your account has been created successfully.', function () {
+          $location.path('/login');
+        });
       }, function () {
         // error
         $modalFactory.error();

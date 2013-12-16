@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 // var db = mongoose.connection;
 
-var UserModel = require('./model/user').UserModel;
-var ExpenseModel = require('./model/expense').ExpenseModel;
+// var UserModel = require('./model/user').UserModel;
+// var ExpenseModel = require('./model/expense').ExpenseModel;
 
 // User
 
@@ -68,11 +68,11 @@ var ExpenseModel = require('./model/expense').ExpenseModel;
 //   console.log('remove');
 // });
 
-ExpenseModel.find({
-  uesrId: 'e60c2b49-ae2e-4e53-b9dc-0eced9042b61'
-}, function (err, expense) {
-  if (err) {
-    console.log(err);
-  }
-  console.log(expense);
-});
+// ExpenseModel.find({
+//   uesrId: 'e60c2b49-ae2e-4e53-b9dc-0eced9042b61'
+// }, function (err, expense) {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(expense);
+// });

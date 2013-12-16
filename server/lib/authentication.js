@@ -35,12 +35,12 @@ module.exports = {
 
   // session useage
   serializeUser: function (user, done) {
-    done(null, user.uesrId);
+    done(null, user.userId);
   },
 
-  deserializeUser: function (uesrId, done) {
+  deserializeUser: function (userId, done) {
     UserModel.find({
-      uesrId: uesrId
+      userId: userId
     }, function (err, users) {
       var user;
       if (err) {

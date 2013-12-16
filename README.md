@@ -117,6 +117,10 @@ Content is `application/json`.
       <td>DELETE /api/expense</td>
       <td>Delete all expenses</td>
   </tr>
+  <tr>
+      <td>DELETE /api/account</td>
+      <td>Delete account</td>
+  </tr>
 </table>
 
 ## Server
@@ -137,9 +141,6 @@ List all used open source libraries for building entire front-end.
 
 ## Future feature
 
-* <del>sign up<del>
-* <del>delete all</del>
-* <del>total amount</del>
 * verify whether the email has been used or not when creating account
 * account setting
 * search bar

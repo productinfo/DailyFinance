@@ -9,7 +9,7 @@ describe('Controller: SignUpCtrl', function () {
 
   beforeEach(function () {
     module('ngResource', function ($provide) {
-      $provide.factory('$modalFactory', app$$modalFactory);
+      $provide.factory('$modalFactory', app$modalFactory);
     });
   });
 

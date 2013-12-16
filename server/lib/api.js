@@ -14,7 +14,7 @@ module.exports = function (app) {
   app.post('/api/password', password.retrievePassword);
 
   // delete account
-  app.delete('/api/account/:userId', Authentication.ensureAuthenticated, account.delete);
+  app.delete('/api/account', Authentication.ensureAuthenticated, account.delete);
 
   // GET List
   app.get('/api/expense', Authentication.ensureAuthenticated, expense.getList);

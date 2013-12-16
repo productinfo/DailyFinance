@@ -8,18 +8,22 @@ angular.module('DailyFinanceApp')
 
     $scope.contentConfig = $contentConfig.detail;
 
+    $scope.callDeleteAPI = function () {
+      $api.delete({
+        expenseId: expenseId
+      }, {
+        userId: userId,
+      }).$promise.then(function () {
+        $location.path('/');
+      }, function () {
+        // error
+        $modalFactory.error();
+      });
+    };
+
     $scope.delete = function () {
-      $modalFactory.deleteModal(function () {
-        $api.delete({
-          expenseId: expenseId
-        }, {
-          userId: userId,
-        }).$promise.then(function () {
-          $location.path('/');
-        }, function () {
-          // error
-          $modalFactory.error();
-        });
+      $modalFactory.confirmModal('delete', 'Delete this item?', 'Are you sure want to delete this expense?', function () {
+        $scope.callDeleteAPI();
       });
     };
 

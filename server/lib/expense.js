@@ -15,7 +15,6 @@ module.exports = {
         console.log(err);
         res.send(404);
       }
-      console.log(data);
       expenseCache = data;
       res.json(data);
     });

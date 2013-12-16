@@ -1,6 +1,6 @@
 'use strict';
 
-function app$$modalFactory($modal) {
+function app$modalFactory($modal) {
   return {
     success: function (title, message, callback) {
       $modal.messageBox(title, message, [{
@@ -30,40 +30,20 @@ function app$$modalFactory($modal) {
           }
         });
     },
-    deleteAllModal: function (callback) {
-      $modal.messageBox('Delete all items', 'Are you sure want to delete all expenses?', [{
+    confirmModal: function (key, title, message, callback) {
+      $modal.messageBox(title, message, [{
         label: 'Close',
         cssClass: 'btn-default',
         result: 'ok'
       }, {
         label: 'Delete',
         cssClass: 'btn-danger',
-        result: 'deleteAll'
+        result: key
       }])
         .open()
         .result
         .then(function (result) {
-          if (result === 'deleteAll') {
-            if (callback) {
-              callback();
-            }
-          }
-        });
-    },
-    deleteModal: function (callback) {
-      $modal.messageBox('Delete this item', 'Are you sure want to delete this expense?', [{
-        label: 'Close',
-        cssClass: 'btn-default',
-        result: 'ok'
-      }, {
-        label: 'Delete',
-        cssClass: 'btn-danger',
-        result: 'delete'
-      }])
-        .open()
-        .result
-        .then(function (result) {
-          if (result === 'delete') {
+          if (result === key) {
             if (callback) {
               callback();
             }
@@ -84,4 +64,4 @@ function app$$modalFactory($modal) {
 }
 
 angular.module('DailyFinanceApp')
-  .factory('$modalFactory', ['$modal', app$$modalFactory]);
+  .factory('$modalFactory', ['$modal', app$modalFactory]);

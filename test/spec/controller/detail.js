@@ -22,7 +22,7 @@ describe('Controller: DetailCtrl', function () {
 
   beforeEach(function () {
     module('ngResource', function ($provide) {
-      $provide.factory('$modalFactory', app$$modalFactory);
+      $provide.factory('$modalFactory', app$modalFactory);
     });
   });
 
@@ -74,11 +74,11 @@ describe('Controller: DetailCtrl', function () {
   });
 
   it('delete should pop up modal to ask whether to delete or not', function () {
-    spyOn(modalFactory, 'deleteModal');
+    spyOn(modalFactory, 'confirmModal');
     mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(mockExpense);
     mockBackend.flush();
     scope.delete();
-    expect(modalFactory.deleteModal).toHaveBeenCalled();
+    expect(modalFactory.confirmModal).toHaveBeenCalled();
   });
 
   xit('submit should send PUT req', function () {

@@ -2,7 +2,7 @@
 
 describe('Controller: NavbarCtrl', function () {
 
-  var scope, mockBackend, controller, modalFactory,
+  var scope, mockBackend, controller, modalFactory, api, account,
   location = {
     path: function () {}
   },
@@ -14,14 +14,18 @@ describe('Controller: NavbarCtrl', function () {
 
   beforeEach(function () {
     module('ngResource', function ($provide) {
-      $provide.factory('$modalFactory', app$$modalFactory);
+      $provide.factory('$modalFactory', app$modalFactory);
+      $provide.factory('$api', app$api);
+      $provide.factory('$account', app$account);
     });
   });
 
-  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $compile, $modalFactory) {
+  beforeEach(inject(function ($rootScope, $controller, $httpBackend, $compile, $modalFactory, $api, $account) {
     mockBackend = $httpBackend;
     controller = $controller;
     modalFactory = $modalFactory;
+    api = $api;
+    account = $account;
     scope = $rootScope.$new();
     controller('NavbarCtrl', {
       $scope: scope,
@@ -30,7 +34,7 @@ describe('Controller: NavbarCtrl', function () {
       $session: {
         get: function() {
           return {
-            uesrId: '123456789'
+            userId: '123456789'
           }
         }
       }
@@ -50,9 +54,32 @@ describe('Controller: NavbarCtrl', function () {
     expect(location.path).toHaveBeenCalled();
   });
 
-  it('deleteAll should popup modal', function () {
-    spyOn(modalFactory, 'deleteAllModal');
-    scope.deleteAll();
-    expect(modalFactory.deleteAllModal).toHaveBeenCalled();
+  it('callDeleteAccountAPI should send delete req', function () {
+    spyOn(modalFactory, 'success');
+    scope.callDeleteAccountAPI();
+    mockBackend.expectDELETE('/api/account?userId=123456789').respond(200);
+    mockBackend.flush();
+    expect(modalFactory.success).toHaveBeenCalled();
   });
+
+  it('deleteAccount should popup modal', function () {
+    spyOn(modalFactory, 'confirmModal');
+    scope.deleteAccount();
+    expect(modalFactory.confirmModal).toHaveBeenCalled();
+  });
+
+  it('batchDelete should send batchDelete req', function () {
+    spyOn(modalFactory, 'success');
+    scope.batchDelete();
+    mockBackend.expectDELETE('/api/expense?userId=123456789').respond(200);
+    mockBackend.flush();
+    expect(modalFactory.success).toHaveBeenCalled();
+  });
+
+  it('deleteAll should popup modal', function () {
+    spyOn(modalFactory, 'confirmModal');
+    scope.deleteAll();
+    expect(modalFactory.confirmModal).toHaveBeenCalled();
+  });
+
 });

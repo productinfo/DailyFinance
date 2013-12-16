@@ -9,7 +9,7 @@ describe('Services: modal', function () {
 
     beforeEach(function () {
       module('ngResource', function ($provide) {
-        $provide.factory('$modalFactory', app$$modalFactory);
+        $provide.factory('$modalFactory', app$modalFactory);
       });
 
       inject(function ($modalFactory, $httpBackend) {
@@ -45,7 +45,7 @@ describe('Services: modal', function () {
           type: 'submit'
         });
         $provide.value('$modal', mockModal);
-        $provide.factory('$modalFactory', app$$modalFactory);
+        $provide.factory('$modalFactory', app$modalFactory);
       });
 
       inject(function ($modalFactory, $httpBackend) {
@@ -66,42 +66,14 @@ describe('Services: modal', function () {
     });
   });
 
-  describe('Delete Modal', function () {
-    var mockBackend, modalFactory;
-
-    beforeEach(function () {
-      module('ngResource', function ($provide) {
-        var mockModal = $modal('delete');
-        $provide.value('$modal', mockModal);
-        $provide.factory('$modalFactory', app$$modalFactory);
-      });
-
-      inject(function ($modalFactory, $httpBackend) {
-        modalFactory = $modalFactory;
-        mockBackend = $httpBackend;
-      });
-    });
-
-    afterEach(function () {
-      mockBackend.verifyNoOutstandingExpectation();
-      mockBackend.verifyNoOutstandingRequest();
-    });
-
-    it('click submit should execute callback with email', function () {
-      var callback = jasmine.createSpyObj('callback', ['callback']);
-      modalFactory.deleteModal(callback.callback);
-      expect(callback.callback).toHaveBeenCalled();
-    });
-  });
-
   describe('Delete All Modal', function () {
-    var mockBackend, modalFactory;
+    var mockBackend, modalFactory, key = 'TEST';
 
     beforeEach(function () {
       module('ngResource', function ($provide) {
-        var mockModal = $modal('deleteAll');
+        var mockModal = $modal(key);
         $provide.value('$modal', mockModal);
-        $provide.factory('$modalFactory', app$$modalFactory);
+        $provide.factory('$modalFactory', app$modalFactory);
       });
 
       inject(function ($modalFactory, $httpBackend) {
@@ -117,7 +89,7 @@ describe('Services: modal', function () {
 
     it('click submit should execute callback with email', function () {
       var callback = jasmine.createSpyObj('callback', ['callback']);
-      modalFactory.deleteAllModal(callback.callback);
+      modalFactory.confirmModal(key, 'title', 'message', callback.callback);
       expect(callback.callback).toHaveBeenCalled();
     });
   });

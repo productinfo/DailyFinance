@@ -42,4 +42,29 @@ describe('Controller: LoginCtrl', function () {
     scope.retrievePassword();
     expect(modalFactory.retrievePasswordModal).toHaveBeenCalled();
   });
+
+  it('callRetrievePasswordAPI should popup success modal', function () {
+    spyOn(modalFactory, 'success');
+    scope.callRetrievePasswordAPI();
+    mockBackend.expectPOST('/api/password').respond(200);
+    mockBackend.flush();
+    expect(modalFactory.success).toHaveBeenCalled();
+  });
+
+  it('should popup error modal if email is not found', function () {
+    spyOn(modalFactory, 'error');
+    scope.callRetrievePasswordAPI();
+    mockBackend.expectPOST('/api/password').respond(404);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
+  });
+
+  it('should popup error modal if there is an error', function () {
+    spyOn(modalFactory, 'error');
+    scope.callRetrievePasswordAPI();
+    mockBackend.expectPOST('/api/password').respond(500);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
+  });
+
 });

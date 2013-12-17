@@ -7,7 +7,8 @@ describe('Controller: DetailCtrl', function () {
       return {
         path: function() {}
       }
-    }
+    },
+    path: function () {}
   },
   mockExpense = {
     'uesrId': '1234-ABCD-5678-WXYZ',
@@ -34,11 +35,11 @@ describe('Controller: DetailCtrl', function () {
     scope = $rootScope.$new();
     controller('DetailCtrl', {
       $scope: scope,
-      // $location: location,
+      $location: location,
       $session: {
         get: function() {
           return {
-            uesrId: '123456789'
+            userId: '123456789'
           }
         }
       }
@@ -48,6 +49,26 @@ describe('Controller: DetailCtrl', function () {
   afterEach(function () {
     mockBackend.verifyNoOutstandingExpectation();
     mockBackend.verifyNoOutstandingRequest();
+  });
+
+  it('callDeleteAPI should send delete req', function () {
+    spyOn(location, 'path');
+    mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(200);
+    mockBackend.flush();
+    scope.callDeleteAPI();
+    mockBackend.expectDELETE('/api/expense/ABCDEFGHIJK?userId=123456789').respond(200);
+    mockBackend.flush();
+    expect(location.path).toHaveBeenCalled();
+  });
+
+  it('error case on callDeleteAPI', function () {
+    spyOn(modalFactory, 'error');
+    mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(200);
+    mockBackend.flush();
+    scope.callDeleteAPI();
+    mockBackend.expectDELETE('/api/expense/ABCDEFGHIJK?userId=123456789').respond(400);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
   });
 
   it('contentConfig should return default settings', function () {
@@ -82,7 +103,13 @@ describe('Controller: DetailCtrl', function () {
   });
 
   xit('submit should send PUT req', function () {
-    // TODO
+    spyOn(location.search(), 'path');
+    mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(mockExpense);
+    mockBackend.flush();
+    scope.submit();
+    mockBackend.expectPUT('/api/expense/ABCDEFGHIJK').respond(200);
+    mockBackend.flush();
+    expect(location.search().path).toHaveBeenCalled();
   });
 
   it('error case for submit', function () {
@@ -90,7 +117,7 @@ describe('Controller: DetailCtrl', function () {
     mockBackend.expectGET('/api/expense/ABCDEFGHIJK').respond(mockExpense);
     mockBackend.flush();
     scope.submit();
-    mockBackend.expectPUT().respond(400);
+    mockBackend.expectPUT('/api/expense/ABCDEFGHIJK').respond(400);
     mockBackend.flush();
     expect(modalFactory.error).toHaveBeenCalled();
   });

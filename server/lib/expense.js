@@ -13,7 +13,7 @@ module.exports = {
     }, function (err, data) {
       if (err) {
         console.log(err);
-        res.send(404);
+        res.send(500);
       }
       expenseCache = data;
       res.json(data);

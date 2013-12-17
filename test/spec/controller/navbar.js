@@ -62,6 +62,14 @@ describe('Controller: NavbarCtrl', function () {
     expect(modalFactory.success).toHaveBeenCalled();
   });
 
+  it('error case on callDeleteAccountAPI', function () {
+    spyOn(modalFactory, 'error');
+    scope.callDeleteAccountAPI();
+    mockBackend.expectDELETE('/api/account?userId=123456789').respond(400);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
+  });
+
   it('deleteAccount should popup modal', function () {
     spyOn(modalFactory, 'confirmModal');
     scope.deleteAccount();
@@ -74,6 +82,14 @@ describe('Controller: NavbarCtrl', function () {
     mockBackend.expectDELETE('/api/expense?userId=123456789').respond(200);
     mockBackend.flush();
     expect(modalFactory.success).toHaveBeenCalled();
+  });
+
+  it('error case on batchDelete', function () {
+    spyOn(modalFactory, 'error');
+    scope.batchDelete();
+    mockBackend.expectDELETE('/api/expense?userId=123456789').respond(400);
+    mockBackend.flush();
+    expect(modalFactory.error).toHaveBeenCalled();
   });
 
   it('deleteAll should popup modal', function () {

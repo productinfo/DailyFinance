@@ -10,11 +10,14 @@ module.exports = {
       email: email
     }, function (err, data) {
       if (err) {
+        res.send(500);
+      }
+      if (data.length > 0) {
+        emailManager.sendOutEmail(data[0]);
+        res.send(200);
+      } else {
         res.send(404);
       }
-      console.log(data);
-      emailManager.sendOutEmail(data[0]);
-      res.send(200);
     });
   }
 };

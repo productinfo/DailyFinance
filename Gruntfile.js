@@ -134,7 +134,7 @@ exports = module.exports = function (grunt) {
     'watch'
   ]);
 
-  // for deploy on production instance
+  // for deploying on production instance
   grunt.registerTask('deploy', [
     'clean:server',
     'concurrent:server',

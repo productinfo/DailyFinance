@@ -105,6 +105,12 @@ exports = module.exports = function (grunt) {
         }
       }
     },
+    forever: {
+      options: {
+        index: config.server + '/index.js',
+        logDir: 'logs'
+      }
+    },
     karma: {
       unit: {
         configFile: 'karma.conf.js',
@@ -133,7 +139,7 @@ exports = module.exports = function (grunt) {
     'clean:server',
     'concurrent:server',
     'express:dist',
-    'express-keepalive'
+    'forever:start'
   ]);
 
   grunt.registerTask('default', [

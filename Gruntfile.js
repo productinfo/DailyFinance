@@ -116,12 +116,20 @@ exports = module.exports = function (grunt) {
     'karma:unit'
   ]);
 
+  // for development usage
   grunt.registerTask('server', [
     'clean:server',
     'concurrent:server',
     'express:livereload',
     'open',
     'watch'
+  ]);
+
+  // for deploy on production instance
+  grunt.registerTask('deploy', [
+    'clean:server',
+    'concurrent:server',
+    'express:livereload'
   ]);
 
   grunt.registerTask('default', [

@@ -40,9 +40,14 @@ exports = module.exports = function (grunt) {
           serverreload: true
         }
       },
+      dist: {
+        options: {
+          server: path.resolve(__dirname, config.server),
+          bases: [path.resolve(config.target), path.resolve(config.client)]
+        }
+      },
       test: {
         options: {
-          // port: 9001,
           server: path.resolve(__dirname, config.server),
           bases: [path.resolve(__dirname, config.target), path.resolve(__dirname, 'test')]
         }
@@ -54,8 +59,6 @@ exports = module.exports = function (grunt) {
         cssDir: '.tmp/css',
         javascriptsDir: config.client + '/js',
         importPath: config.client + '/bower_components',
-        // httpFontsPath: '/fonts',
-        // fontsDir: config.client + '/fonts',
         relativeAssets: false
       },
       server: {
@@ -129,7 +132,8 @@ exports = module.exports = function (grunt) {
   grunt.registerTask('deploy', [
     'clean:server',
     'concurrent:server',
-    'express:livereload'
+    'express:dist',
+    'express-keepalive'
   ]);
 
   grunt.registerTask('default', [

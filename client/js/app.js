@@ -90,18 +90,6 @@ angular.module('DailyFinanceApp', [
   })
   .run(['$rootScope', '$location', 'AuthenticationService',
     function ($rootScope, $location, AuthenticationService) {
-      // logout
-      $rootScope.logout = function () {
-        var logout = AuthenticationService.logout();
-        logout.then(function () {
-          $location.path('/login');
-        });
-        return logout;
-      };
-    }
-  ])
-  .run(['$rootScope', '$location', 'AuthenticationService',
-    function ($rootScope, $location, AuthenticationService) {
       // login
       var publicRoutes = ['/login'];
       $rootScope.$on('$routeChangeStart', function () {

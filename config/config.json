@@ -3,5 +3,5 @@
   "client": "client",
   "server": "server/lib",
   "target": ".tmp",
-  "mongodbUrl": "mongodb://localhost/test"
+  "mongodbUrl": "** Your MongoDB URL **"
 }

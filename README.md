@@ -70,8 +70,63 @@ Preserve all user profile and expense data in the mongoDB.
 
 ### DB Schema
 
-TODO!
+##### Users
 
+<table>
+	<tr>
+    	<th>Property</th>
+    	<th>Type</th>
+  	</tr>
+  	<tr>
+      <td>userId</td>
+      <td>String</td>
+  	</tr>
+  	<tr>
+      <td>name</td>
+      <td>String</td>
+  	</tr>
+  	<tr>
+      <td>email</td>
+      <td>String</td>
+  	</tr>
+  	<tr>
+      <td>password</td>
+      <td>String</td>
+  	</tr>
+</table>
+
+##### Expenses
+
+<table>
+	<tr>
+    	<th>Property</th>
+    	<th>Type</th>
+  	</tr>
+  	<tr>
+      <td>userId</td>
+      <td>String</td>
+  	</tr>
+  	<tr>
+      <td>expenseId</td>
+      <td>String</td>
+  	</tr>
+  	<tr>
+      <td>name</td>
+      <td>String</td>
+  	</tr>
+  	<tr>
+      <td>price</td>
+      <td>Number</td>
+  	</tr>
+	<tr>
+      <td>date</td>
+      <td>String</td>
+  	</tr>
+  	<tr>
+      <td>time</td>
+      <td>String</td>
+  	</tr>
+</table>
 
 
 ## RESTful API

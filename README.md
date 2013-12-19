@@ -1,6 +1,6 @@
 # [DailyFinance](http://leoj.net)
 
-DailyFinance is a end to end full-stack web application for people easily to save the each single expense they spent any where any time through any devices, all you need is web connection. 
+DailyFinance ([Live Demo](http://54.201.105.208:1985)) is a end to end full-stack web application for people easily to save the each single expense they spent any where any time through any devices, all you need is web connection. 
 
 Provide sign up account, login, retrieve password and basic **CRUD** operations.
 

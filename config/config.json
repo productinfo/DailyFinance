@@ -2,6 +2,7 @@
   "port": "1985",
   "client": "client",
   "server": "server/lib",
+  "deploy": " ** Directory Path **",
   "target": ".tmp",
   "mongodbUrl": "** Your MongoDB URL **"
 }

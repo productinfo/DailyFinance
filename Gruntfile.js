@@ -107,7 +107,8 @@ exports = module.exports = function (grunt) {
     },
     forever: {
       options: {
-        index: config.server + '/index.js'
+        index: config.deploy,
+        logDir: 'logs'
       }
     },
     karma: {

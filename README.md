@@ -6,6 +6,8 @@ Provide sign up account, login, retrieve password and basic **CRUD** operations.
 
 Entire web app built with Node.js, Express, MongoDB, AngularJS, Bootstrap and RESTful API.
 
+Take a look to see whether your account created successfully or not ([Link](http://54.201.105.208:1992))
+
 ## Run the app
 
 ### Pre-required

@@ -1,12 +1,12 @@
 # [DailyFinance](http://leoj.net)
 
-DailyFinance ([Live Demo](http://54.201.105.208:1985)) is a end to end full-stack web application for people easily to save the each single expense they spent any where any time through any devices, all you need is web connection. 
+DailyFinance ([Live Demo](http://54.201.105.208:1985)) is a end to end full-stack web application for people easily to save the each single expense they spent any where any time through any devices, mobile, tablet or laptop as long as with the browsers, all you need is web connection. 
 
 Provide sign up account, login, retrieve password and basic **CRUD** operations.
 
 Entire web app built with Node.js, Express, MongoDB, AngularJS, Bootstrap and RESTful API.
 
-Take a look to see whether your account created successfully or not ([Link](http://54.201.105.208:1992))
+Take a look to see whether your account got created successfully or not ([Link](http://54.201.105.208:1992))
 
 ## Run the app
 

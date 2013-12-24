@@ -61,6 +61,14 @@ exports = module.exports = function (grunt) {
         importPath: config.client + '/bower_components',
         relativeAssets: false
       },
+      dist: {
+        sassDir: config.client + '/css',
+        cssDir: '.tmp/css',
+        javascriptsDir: config.client + '/js',
+        importPath: config.client + '/bower_components',
+        relativeAssets: false,
+        outputStyle: 'compressed'
+      },
       server: {
         options: {
           debugInfo: true
@@ -75,6 +83,9 @@ exports = module.exports = function (grunt) {
     concurrent: {
       server: [
         'compass:server'
+      ],
+      dist: [
+        'compass:dist'
       ],
       test: [
         'compass'
@@ -131,7 +142,7 @@ exports = module.exports = function (grunt) {
   // for deploying on production instance
   grunt.registerTask('deploy', [
     'clean:server',
-    'concurrent:server',
+    'concurrent:dist',
     'express:dist',
     'express-keepalive'
   ]);

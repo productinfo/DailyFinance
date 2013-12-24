@@ -62,12 +62,14 @@ exports = module.exports = function (grunt) {
         relativeAssets: false
       },
       dist: {
-        sassDir: config.client + '/css',
-        cssDir: '.tmp/css',
-        javascriptsDir: config.client + '/js',
-        importPath: config.client + '/bower_components',
-        relativeAssets: false,
-        outputStyle: 'compressed'
+        options: {
+          sassDir: config.client + '/css',
+          cssDir: '.tmp/css',
+          javascriptsDir: config.client + '/js',
+          importPath: config.client + '/bower_components',
+          relativeAssets: false,
+          outputStyle: 'compressed'
+        }
       },
       server: {
         options: {

@@ -182,7 +182,7 @@ Content is `application/json`.
 
 ## Server
 
-List all used open source libraries for building entire back-end.
+Deploying on Amazon EC2, list all used open source libraries for building entire back-end.
 
 * [express](http://expressjs.com) for building entire server.
 * [passport](http://passportjs.org) for authentication.

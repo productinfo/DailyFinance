@@ -206,6 +206,11 @@ List all used open source libraries for building entire front-end.
 * social log in (fb, twitter, g+)
 * multi-currency
 
+## Author
+| [![twitter/Leohsieh0924](http://www.gravatar.com/avatar/d4e9fa87dd47c856e58ddf24f803a060.png)](https://twitter.com/Leohsieh0924 "Follow @Leohsieh0924 on Twitter") |
+|---|
+| [Leo Hsieh](http://leoj.net) |
+
 ## Release History
 
-v0.0.1 Initial release
+* 2013-10-05 `v0.0.1` Initial release

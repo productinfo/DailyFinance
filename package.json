@@ -24,7 +24,8 @@
     "sugar": "~1.4.1",
     "mongoose": "~3.6.20",
     "node-uuid": "~1.4.1",
-    "emailjs": "~0.3.6"
+    "emailjs": "~0.3.6",
+    "rsvp": "~3.0.3"
   },
   "devDependencies": {
     "matchdep": "~0.1.2",

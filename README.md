@@ -199,6 +199,7 @@ List all used open source libraries for building entire front-end.
 ## Future feature
 
 * verify whether the email has been used or not when creating account
+* add loader
 * account setting
 * search bar
 * deposit VS purchase

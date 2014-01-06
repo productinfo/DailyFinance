@@ -55,7 +55,7 @@ function app$modalFactory($modal) {
         message = message || 'Internal server error...';
       $modal.messageBox(title, message, [{
         label: 'Close',
-        cssClass: 'btn-default',
+        cssClass: 'btn-danger',
         result: 'ok'
       }])
         .open();

@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('DailyFinanceApp')
-  .controller('SignUpCtrl', function ($scope, $location, $account, $modalFactory) {
+  .controller('SignUpCtrl', function ($scope, $location, $account, $modalFactory, $flash) {
+
+    // clean the flash message
+    $flash.clear();
+
     $scope.signup = function () {
 
       var profile = this.profile || {};
@@ -44,9 +48,14 @@ angular.module('DailyFinanceApp')
         $modalFactory.success('Account created!', 'Your account has been created successfully.', function () {
           $location.path('/login');
         });
-      }, function () {
-        // error
-        $modalFactory.error();
+      }, function (err) {
+        if (err.status === 400) {
+          // email taken
+          $modalFactory.error('Email taken!', 'Someone already has registered that email. Try another?');
+        } else {
+          // error
+          $modalFactory.error();
+        }
       });
     };
 

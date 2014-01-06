@@ -198,7 +198,6 @@ List all used open source libraries for building entire front-end.
 
 ## Future feature
 
-* verify whether the email has been used or not when creating account
 * add loader
 * account setting
 * search bar
@@ -215,3 +214,4 @@ List all used open source libraries for building entire front-end.
 ## Release History
 
 * 2013-10-05 `v0.0.1` Initial release
+* 2013-10-05 `v0.0.2` verify whether the email has been used or not when creating account
